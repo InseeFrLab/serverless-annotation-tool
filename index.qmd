@@ -74,7 +74,7 @@ decision_label = [
 viewof decision = (count, Inputs.radio(
   decision_label,
   {label: "Décision",
-   format: x => (x == null) ? html`<span style="border-bottom: solid 2px blue; margin-bottom: -2px;">Décision à prendre` : html`<span style="text-transform: capitalize; border-bottom: solid 2px ${x.color}; margin-bottom: -2px;">${x.text}`,
+   format: x => (x == null) ? html`<span style="border-bottom: solid 2px blue; margin-bottom: -2px;">Décision à prendre 🤔` : html`<span style="text-transform: capitalize; border-bottom: solid 2px ${x.color}; margin-bottom: -2px;">${x.text}`,
    value: null
   }
 ))
