@@ -1,0 +1,111 @@
+---
+title: "Annotation de fichiers"
+echo: false
+---
+
+```{ojs}
+//| echo: false
+grid_two_dataframes = html`<div style="
+            background: #fff;
+            margin: 0;
+            border: none ;
+            display: grid;
+            width: ${screen.width};
+            grid-template-areas: 
+              'a b'
+              'c c'
+              'd d'
+              'e e';
+            grid-gap: 10px;
+          ">
+            <div name="a" style="grid-area: a; position: relative;">${viewof tt1}</div>
+            <div name="b" style="grid-area: b; position: relative;">${viewof tt2}</div>
+            <div name="c" style="grid-area: c; position: relative;">${viewof decision}</div>
+            <div name="d" style="grid-area: d; position: relative;">${viewof count}</div>
+            <div name="e" style="grid-area: e; position: relative;">${viewof download}</div>
+          </div>`
+```
+
+
+```{ojs}
+//| echo: false
+viewof download = DOM.download(serialize(d), null, "Télécharger les annotations")
+```
+
+
+```{ojs}
+//| echo: false
+viewof tt1 = Inputs.table(
+  data_pairs["pairs"][0]["fields"].map(row => row.a),
+  {
+    columns: [
+    "value"
+    ],
+    header: {"value": "Ligne à identifier"}
+  }
+)
+viewof tt2 = Inputs.table(
+  data_pairs["pairs"][count]["fields"].map(row => row.b),
+  {
+    columns: [
+    "value"
+    ],
+    header: {"value": "Paire potentielle"}
+  }
+)
+```
+
+```{ojs}
+url_file = "https://raw.githubusercontent.com/J535D165/recordlinkage-annotator/master/examples/annotation_dishonesty.json"
+data_pairs = d3.json(
+  url_file
+)
+```
+
+```{ojs}
+decision_label = [
+  {text: "Accepter 👍️", color: "green", decision: "Accepted"},
+  {text: "Rejeter 👎️", color: "red", decision: "Rejected"},
+  null
+]
+```
+
+```{ojs}
+viewof decision = (count, Inputs.radio(
+  decision_label,
+  {label: "Décision",
+   format: x => (x == null) ? html`<span style="border-bottom: solid 2px blue; margin-bottom: -2px;">Décision à prendre` : html`<span style="text-transform: capitalize; border-bottom: solid 2px ${x.color}; margin-bottom: -2px;">${x.text}`,
+   value: null
+  }
+))
+```
+
+
+```{ojs}
+viewof count = Inputs.button("Nouvel exemple à annoter !")
+```
+
+```{ojs}
+d = {
+  // Assuming `count` and `data_pairs` are already defined
+const newElement = { ...data_pairs["pairs"][count]["fields"][0] }; // Create a shallow copy of the original element
+
+if (decision !== null) {
+  newElement.similarity = decision.decision; // Update the "field" property with the value of `decision.decision`
+} else {
+  newElement.similarity = "no decision yet"; // Set the "field" property to "nothing" if `decision.decision` is null
+}
+
+  return newElement;
+}
+```
+
+```{ojs}
+function serialize (data) {
+ let s = JSON.stringify(data);
+ return new Blob([s], {type: "application/json"}) 
+}
+```
+
+
+
