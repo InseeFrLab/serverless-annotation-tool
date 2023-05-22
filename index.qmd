@@ -29,7 +29,7 @@ grid_two_dataframes = html`<div style="
 
 ```{ojs}
 //| echo: false
-viewof download = DOM.download(serialize(d), null, "Télécharger les annotations")
+viewof download = DOM.download(serialize(d), null, "Ecrire les annotations dans un fichier")
 ```
 
 
