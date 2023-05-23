@@ -157,3 +157,17 @@ df_match = db.query(
 unique_columns_dup = column_names.map(columnName => columnName.replace("_query", "").replace("_match", ""));
 unique_columns = Array.from(new Set(unique_columns_dup))
 ```
+
+```{ojs}
+function sparkbar(max) {
+  return x => htl.html`<div style="
+    background: lightblue;
+    width: 100%;
+    float: right;
+    padding-right: 3px;
+    box-sizing: border-box;
+    overflow: visible;
+    display: flex;
+    justify-content: end;">${x.toLocaleString("en")}`
+}
+```
