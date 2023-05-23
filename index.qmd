@@ -37,6 +37,18 @@ grid_two_dataframes = html`<div style="
 viewof download = DOM.download(serialize(d), null, "Sauvegarder les annotations 👇 dans un fichier")
 ```
 
+```{ojs}
+[
+  {col: ["prenom_query", "nom_query", "date_naissance_query", "lieu_naissance_query"]},
+  {val: ["François", "Pignon", 1975, 75014]}
+]
+```
+
+```{ojs}
+function reshape_row(row) {
+  return Object.entries(row).map(([column, value]) => ({ column, value }));
+}
+```
 
 ```{ojs}
 
@@ -45,22 +57,23 @@ bgcol = value => htl.html`<div style="background: ${
 }">${value}`
 
 viewof tt1 = Inputs.table(
-  df_query[count],
-  {
-    columns: "1",
-    format: {"1": d => bgcol(d) },
-    header: {"1": "Observation"}
+  reshape_row(
+    df_query[count]
+  ),
+    {
+    format: {"value": d => bgcol(d) },
+    header: {"value": "Valeur observée"}
   }
 )
 ```
 
 ```{ojs}
 viewof tt2 = Inputs.table(
-  df_match[count],
+  reshape_row(df_match[count]),
   {
-    columns: "1",
-    format: {"1": d => bgcol(d) },
-    header: {"1": "Paire potentielle"}
+    columns: ["value"],
+    format: {"value": d => bgcol(d) },
+    header: {"value": "Paire potentielle"}
   }
 )
 ```
