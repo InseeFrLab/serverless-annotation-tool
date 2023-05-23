@@ -29,28 +29,26 @@ grid_two_dataframes = html`<div style="
 
 ```{ojs}
 //| echo: false
-viewof download = DOM.download(serialize(d), null, "Ecrire les annotations dans un fichier")
+viewof download = DOM.download(serialize(d), null, "Sauvegarder les annotations 👇 dans un fichier")
 ```
 
 
 ```{ojs}
-//| echo: false
 viewof tt1 = Inputs.table(
-  data_pairs["pairs"][0]["fields"].map(row => row.a),
+  df_query[count],
   {
-    columns: [
-    "value"
-    ],
-    header: {"value": "Ligne à identifier"}
+    columns: "1",
+    header: {"1": "Observation"}
   }
 )
+```
+
+```{ojs}
 viewof tt2 = Inputs.table(
-  data_pairs["pairs"][count]["fields"].map(row => row.b),
+  df_match[count],
   {
-    columns: [
-    "value"
-    ],
-    header: {"value": "Paire potentielle"}
+    columns: "1",
+    header: {"1": "Paire potentielle"}
   }
 )
 ```
@@ -85,16 +83,37 @@ viewof decision = (count, Inputs.radio(
 viewof count = Inputs.button("Nouvel exemple à annoter !")
 ```
 
-```{ojs}
-d = {
-  // Assuming `count` and `data_pairs` are already defined
-const newElement = { ...data_pairs["pairs"][count]["fields"][0] }; // Create a shallow copy of the original element
+Annotations:
 
-if (decision !== null) {
-  newElement.similarity = decision.decision; // Update the "field" property with the value of `decision.decision`
-} else {
-  newElement.similarity = "no decision yet"; // Set the "field" property to "nothing" if `decision.decision` is null
+```{ojs}
+Inputs.table(x)
+```
+
+```{ojs}
+d = [];
+```
+
+```{ojs}
+function push_mutable(d){
+  if (decision !== null) {
+      d.push(d_row);
+    }
+  return d ;
 }
+x = push_mutable(d)
+```
+
+
+```{ojs}
+d_row = {
+  // Assuming `count` and `data_pairs` are already defined
+  const newElement = { ...df[count] }; // Create a shallow copy of the original element
+
+  if (decision !== null) {
+    newElement.similarity = decision.decision; // Update the "field" property with the value of `decision.decision`
+  } else {
+    newElement.similarity = "no decision yet"; // Set the "field" property to "nothing" if `decision.decision` is null
+  }
 
   return newElement;
 }
@@ -108,4 +127,28 @@ function serialize (data) {
 ```
 
 
+```{ojs}
+db = DuckDBClient.of({
+  match : await FileAttachment("example.csv")
+})
+```
 
+```{ojs}
+table_names = db.sql`SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'match'`
+column_names = table_names.flatMap(item => item.column_name)
+```
+
+```{ojs}
+df = db.sql`SELECT * FROM match`
+df_query = db.query(
+  `SELECT ${unique_columns.map(l => l + "_query").join(', ')} FROM match`
+)
+df_match = db.query(
+  `SELECT ${unique_columns.map(l => l + "_match").join(', ')} FROM match`
+)
+```
+
+```{ojs}
+unique_columns_dup = column_names.map(columnName => columnName.replace("_query", "").replace("_match", ""));
+unique_columns = Array.from(new Set(unique_columns_dup))
+```
