@@ -1,5 +1,6 @@
 ---
 title: "Annotation de fichiers"
+echo: false
 ---
 
 ```{ojs}
@@ -28,7 +29,7 @@ grid_two_dataframes = html`<div style="
 
 ```{ojs}
 //| echo: false
-viewof download = DOM.download(serialize(d), null, "Sauvegarder les annotations dans un fichier")
+viewof download = DOM.download(serialize(d), null, "Sauvegarder les annotations 👇 dans un fichier")
 ```
 
 
@@ -82,9 +83,14 @@ viewof decision = (count, Inputs.radio(
 viewof count = Inputs.button("Nouvel exemple à annoter !")
 ```
 
+Annotations:
+
+```{ojs}
+Inputs.table(x)
+```
+
 ```{ojs}
 d = [];
-d
 ```
 
 ```{ojs}
@@ -95,7 +101,6 @@ function push_mutable(d){
   return d ;
 }
 x = push_mutable(d)
-x
 ```
 
 
