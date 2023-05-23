@@ -37,18 +37,6 @@ grid_two_dataframes = html`<div style="
 viewof download = DOM.download(serialize(d), null, "Sauvegarder les annotations 👇 dans un fichier")
 ```
 
-```{ojs}
-[
-  {col: ["prenom_query", "nom_query", "date_naissance_query", "lieu_naissance_query"]},
-  {val: ["François", "Pignon", 1975, 75014]}
-]
-```
-
-```{ojs}
-function reshape_row(row) {
-  return Object.entries(row).map(([column, value]) => ({ column, value }));
-}
-```
 
 ```{ojs}
 
@@ -176,4 +164,12 @@ df_match = db.query(
 ```{ojs}
 unique_columns_dup = column_names.map(columnName => columnName.replace("_query", "").replace("_match", ""));
 unique_columns = Array.from(new Set(unique_columns_dup))
+```
+
+
+
+```{ojs}
+function reshape_row(row) {
+  return Object.entries(row).map(([column, value]) => ({ column, value }));
+}
 ```
