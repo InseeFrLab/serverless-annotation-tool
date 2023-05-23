@@ -39,10 +39,16 @@ viewof download = DOM.download(serialize(d), null, "Sauvegarder les annotations 
 
 
 ```{ojs}
+
+bgcol = value => htl.html`<div style="background: ${
+ value === "Pignon" ?  "#a9e4f3" : "#fde9d2"
+}">${value}`
+
 viewof tt1 = Inputs.table(
   df_query[count],
   {
     columns: "1",
+    format: {"1": d => bgcol(d) },
     header: {"1": "Observation"}
   }
 )
@@ -53,6 +59,7 @@ viewof tt2 = Inputs.table(
   df_match[count],
   {
     columns: "1",
+    format: {"1": d => bgcol(d) },
     header: {"1": "Paire potentielle"}
   }
 )
