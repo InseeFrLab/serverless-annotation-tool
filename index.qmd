@@ -4,6 +4,11 @@ echo: false
 ---
 
 ```{ojs}
+viewof columns_to_show = Inputs.checkbox(unique_columns, {label: "Colonnes à afficher", value: unique_columns})
+```
+
+
+```{ojs}
 //| echo: false
 grid_two_dataframes = html`<div style="
             background: #fff;
@@ -141,10 +146,10 @@ column_names = table_names.flatMap(item => item.column_name)
 ```{ojs}
 df = db.sql`SELECT * FROM match`
 df_query = db.query(
-  `SELECT ${unique_columns.map(l => l + "_query").join(', ')} FROM match`
+  `SELECT ${columns_to_show.map(l => l + "_query").join(', ')} FROM match`
 )
 df_match = db.query(
-  `SELECT ${unique_columns.map(l => l + "_match").join(', ')} FROM match`
+  `SELECT ${columns_to_show.map(l => l + "_match").join(', ')} FROM match`
 )
 ```
 
