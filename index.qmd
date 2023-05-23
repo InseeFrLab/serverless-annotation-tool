@@ -83,15 +83,32 @@ viewof count = Inputs.button("Nouvel exemple à annoter !")
 ```
 
 ```{ojs}
-d = {
-  // Assuming `count` and `data_pairs` are already defined
-const newElement = { ...df[count] }; // Create a shallow copy of the original element
+d = [];
+d
+```
 
-if (decision !== null) {
-  newElement.similarity = decision.decision; // Update the "field" property with the value of `decision.decision`
-} else {
-  newElement.similarity = "no decision yet"; // Set the "field" property to "nothing" if `decision.decision` is null
+```{ojs}
+function push_mutable(d){
+  if (decision !== null) {
+      d.push(d_row);
+    }
+  return d ;
 }
+x = push_mutable(d)
+x
+```
+
+
+```{ojs}
+d_row = {
+  // Assuming `count` and `data_pairs` are already defined
+  const newElement = { ...df[count] }; // Create a shallow copy of the original element
+
+  if (decision !== null) {
+    newElement.similarity = decision.decision; // Update the "field" property with the value of `decision.decision`
+  } else {
+    newElement.similarity = "no decision yet"; // Set the "field" property to "nothing" if `decision.decision` is null
+  }
 
   return newElement;
 }
