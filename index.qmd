@@ -131,7 +131,7 @@ Annotations:
 
 ```{ojs}
 function color_accepted(d) {
-  const backgroundColor = "Accepted" ? "#5f9c5f" : "#fc4747"; ;
+  const backgroundColor = d === "Accepted" ? "#5f9c5f" : "#fc4747";
   return html`<div style="background: ${backgroundColor};text-align:right;padding:2px 5px;">${d}</div>`;
 }
 ```
