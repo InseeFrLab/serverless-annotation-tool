@@ -52,7 +52,7 @@ viewof text_input = (count,
 ```
 
 ```{ojs}
-share = Math.round(100*current_row/Number(n_rows))
+share = Math.round(100*current_row/(Number(n_rows)-1))
 html`<div style="background:green;width:${share}%;height:33px;">`
 ```
 
@@ -193,12 +193,10 @@ x = push_mutable(d)
 ```
 
 
-
-
 ```{ojs}
 d_row = {
   // Assuming `count` and `data_pairs` are already defined
-  const newElement = { ...df[count] }; // Create a shallow copy of the original element
+  const newElement = { ...df[current_row] }; // Create a shallow copy of the original element
 
   if (decision !== null) {
     newElement.similarity = decision.decision; // Update the "field" property with the value of `decision.decision`
@@ -245,7 +243,7 @@ n_rows_sql = db.sql`SELECT COUNT(*) AS COUNT FROM match`
 
 ```{ojs}
 n_rows = n_rows_sql[0]['COUNT']
-current_row = Math.min(Number(n_rows),count)
+current_row = Math.min(Number(n_rows)-1,count)
 ```
 
 ```{ojs}
