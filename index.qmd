@@ -19,16 +19,22 @@ grid_two_dataframes = html`<div style="
             grid-template-areas: 
               'a b'
               'c c'
+              'f f'
               'd d'
               'e e';
             grid-gap: 10px;
           ">
             <div name="a" style="grid-area: a; position: relative;">${viewof tt1}</div>
             <div name="b" style="grid-area: b; position: relative;">${viewof tt2}</div>
+            <div name="f" style="grid-area: f; position: relative;">${viewof text_input}</div>
             <div name="c" style="grid-area: c; position: relative;">${viewof decision}</div>
             <div name="d" style="grid-area: d; position: relative;">${viewof count}</div>
             <div name="e" style="grid-area: e; position: relative;">${viewof download}</div>
           </div>`
+```
+
+```{ojs}
+viewof text_input = Inputs.text({label: html`<b>Raison de la décision</b>`, placeholder: "Un texte explicatif"})
 ```
 
 
@@ -167,8 +173,10 @@ d_row = {
 
   if (decision !== null) {
     newElement.similarity = decision.decision; // Update the "field" property with the value of `decision.decision`
+    newElement.justification = text_input ;
   } else {
     newElement.similarity = "no decision yet"; // Set the "field" property to "nothing" if `decision.decision` is null
+    newElement.justification = text_input ;
   }
 
   return newElement;
