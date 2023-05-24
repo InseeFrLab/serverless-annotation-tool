@@ -52,19 +52,19 @@ viewof text_input = (count,
 ```
 
 ```{ojs}
-share = Math.round(100*count/Number(n_rows))
+share = Math.round(100*current_row/Number(n_rows))
 html`<div style="background:green;width:${share}%;height:33px;">`
 ```
 
 
 ```{ojs}
 //| echo: false
-viewof download = DOM.download(serialize(d), null, "Sauvegarder les annotations 👇 dans un fichier")
+viewof download = DOM.download(serialize(x), null, "Sauvegarder les annotations 👇 dans un fichier")
 ```
 
 ```{ojs}
-array1 = reshape_row(df_query[count])
-array2 = reshape_row(df_match[count])
+array1 = reshape_row(df_query[current_row])
+array2 = reshape_row(df_match[current_row])
 
 function create_color_mapping(array1, array2) {
   const mapping = {};
@@ -99,7 +99,7 @@ colors_data2 = create_color_mapping(array2, array1)
 ```{ojs}
 viewof tt1 = Inputs.table(
   reshape_row(
-    df_query[count]
+    df_query[current_row]
   ),
     {
     format: {
@@ -113,7 +113,7 @@ viewof tt1 = Inputs.table(
 
 ```{ojs}
 viewof tt2 = Inputs.table(
-  reshape_row(df_match[count]),
+  reshape_row(df_match[current_row]),
   {
     columns: ["value"],
     format: {"value": d => create_color_map(d, colors_data2) },
@@ -149,13 +149,13 @@ viewof decision = (count, Inputs.radio(
 
 
 ```{ojs}
-viewof count = Inputs.button("Nouvel exemple à annoter !")
+viewof count = Inputs.button("Valider !")
 ```
 
 <br>
 
 ```{ojs}
-md`${count} Annotation${count>1 ? 's' : ''}`
+md`${current_row} Annotation${current_row>1 ? 's' : ''}`
 ```
 
 
@@ -180,8 +180,8 @@ Inputs.table(
 d = [];
 function push_mutable(d){
   if (decision !== null) {
-    if (d.some(element => element.count === count)){
-      const index_replace = d.findIndex(element => element.count === count);
+    if (d.some(element => element.count === current_row)){
+      const index_replace = d.findIndex(element => element.count === current_row);
       d[index_replace] = d_row ;
     } else{
       d.push(d_row);
@@ -203,9 +203,9 @@ d_row = {
   if (decision !== null) {
     newElement.similarity = decision.decision; // Update the "field" property with the value of `decision.decision`
     newElement.justification = text_input ;
-    newElement.count = count ;
+    newElement.count = current_row ;
   } else {
-    newElement.count = count ;
+    newElement.count = current_row ;
     newElement.similarity = "no decision yet"; // Set the "field" property to "nothing" if `decision.decision` is null
     newElement.justification = text_input ;
   }
@@ -221,10 +221,9 @@ function serialize (data) {
 }
 ```
 
-
 ```{ojs}
 db = DuckDBClient.of({
-  match : await FileAttachment("example.csv")
+  match : FileAttachment("example.csv")
 })
 ```
 
@@ -246,6 +245,7 @@ n_rows_sql = db.sql`SELECT COUNT(*) AS COUNT FROM match`
 
 ```{ojs}
 n_rows = n_rows_sql[0]['COUNT']
+current_row = Math.min(Number(n_rows),count)
 ```
 
 ```{ojs}
