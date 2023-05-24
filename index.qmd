@@ -39,6 +39,23 @@ viewof text_input = (count,
 )
 ```
 
+<br>
+
+```{ojs}
+{
+  if (share < 10){
+    return md`Vous avez annoté ${share}% des paires du fichier d'entrée`
+  } else {
+    return md`Bravo vous avez annoté ${share}% des paires du fichier d'entrée`
+  }
+}
+```
+
+```{ojs}
+share = Math.round(100*count/Number(n_rows))
+html`<div style="background:green;width:${share}%;height:33px;">`
+```
+
 
 ```{ojs}
 //| echo: false
@@ -135,7 +152,12 @@ viewof decision = (count, Inputs.radio(
 viewof count = Inputs.button("Nouvel exemple à annoter !")
 ```
 
-Annotations:
+<br>
+
+```{ojs}
+md`${count} Annotation${count>1 ? 's' : ''}`
+```
+
 
 ```{ojs}
 function color_accepted(d) {
@@ -219,6 +241,11 @@ df_query = db.query(
 df_match = db.query(
   `SELECT ${columns_to_show.map(l => l + "_match").join(', ')} FROM match`
 )
+n_rows_sql = db.sql`SELECT COUNT(*) AS COUNT FROM match`
+```
+
+```{ojs}
+n_rows = n_rows_sql[0]['COUNT']
 ```
 
 ```{ojs}
