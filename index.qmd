@@ -34,7 +34,9 @@ grid_two_dataframes = html`<div style="
 ```
 
 ```{ojs}
-viewof text_input = Inputs.text({label: html`<b>Raison de la décision</b>`, placeholder: "Un texte explicatif"})
+viewof text_input = (count,
+  Inputs.text({label: html`<b>Raison de la décision</b>`, placeholder: "Un texte explicatif"})
+)
 ```
 
 
@@ -151,19 +153,24 @@ Inputs.table(
   })
 ```
 
-```{ojs}
-d = [];
-```
 
 ```{ojs}
+d = [];
 function push_mutable(d){
   if (decision !== null) {
+    if (d.some(element => element.count === count)){
+      const index_replace = d.findIndex(element => element.count === count);
+      d[index_replace] = d_row ;
+    } else{
       d.push(d_row);
+    }
     }
   return d ;
 }
 x = push_mutable(d)
 ```
+
+
 
 
 ```{ojs}
@@ -174,7 +181,9 @@ d_row = {
   if (decision !== null) {
     newElement.similarity = decision.decision; // Update the "field" property with the value of `decision.decision`
     newElement.justification = text_input ;
+    newElement.count = count ;
   } else {
+    newElement.count = count ;
     newElement.similarity = "no decision yet"; // Set the "field" property to "nothing" if `decision.decision` is null
     newElement.justification = text_input ;
   }
