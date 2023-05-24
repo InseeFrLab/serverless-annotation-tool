@@ -371,68 +371,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Annotations:</p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb11" data-startfrom="132" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 131;"><span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb11" data-startfrom="132" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 131;"><span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">color_accepted</span>(d) {</span>
+<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> backgroundColor <span class="op">=</span> <span class="st">"Accepted"</span> <span class="op">?</span> <span class="st">"#5f9c5f"</span> <span class="op">:</span> <span class="st">"#fc4747"</span><span class="op">;</span> <span class="op">;</span></span>
+<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="background: </span><span class="sc">${</span>backgroundColor<span class="sc">}</span><span class="vs">;text-align:right;padding:2px 5px;"&gt;</span><span class="sc">${</span>d<span class="sc">}</span><span class="vs">&lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-11" data-nodetype="expression">
+<div id="ojs-cell-11" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb12" data-startfrom="136" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 135;"><span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> []<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb12" data-startfrom="139" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 138;"><span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">table</span>(</span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a>  x<span class="op">,</span></span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">format</span><span class="op">:</span> {</span>
+<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a>      <span class="st">"similarity"</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="fu">color_accepted</span>(d)</span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a>  })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-12" data-nodetype="declaration">
+<div id="ojs-cell-12" data-nodetype="expression">
 
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb13" data-startfrom="141" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 140;"><span id="cb13-141"><a href="#cb13-141" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">push_mutable</span>(d){</span>
-<span id="cb13-142"><a href="#cb13-142" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (decision <span class="op">!==</span> <span class="kw">null</span>) {</span>
-<span id="cb13-143"><a href="#cb13-143" aria-hidden="true" tabindex="-1"></a>      d<span class="op">.</span><span class="fu">push</span>(d_row)<span class="op">;</span></span>
-<span id="cb13-144"><a href="#cb13-144" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb13-145"><a href="#cb13-145" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> d <span class="op">;</span></span>
-<span id="cb13-146"><a href="#cb13-146" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb13-147"><a href="#cb13-147" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fu">push_mutable</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb13" data-startfrom="148" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 147;"><span id="cb13-148"><a href="#cb13-148" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> []<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-13" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb14" data-startfrom="153" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 152;"><span id="cb14-153"><a href="#cb14-153" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">push_mutable</span>(d){</span>
+<span id="cb14-154"><a href="#cb14-154" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (decision <span class="op">!==</span> <span class="kw">null</span>) {</span>
+<span id="cb14-155"><a href="#cb14-155" aria-hidden="true" tabindex="-1"></a>      d<span class="op">.</span><span class="fu">push</span>(d_row)<span class="op">;</span></span>
+<span id="cb14-156"><a href="#cb14-156" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb14-157"><a href="#cb14-157" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> d <span class="op">;</span></span>
+<span id="cb14-158"><a href="#cb14-158" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-159"><a href="#cb14-159" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fu">push_mutable</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-13-1" data-nodetype="declaration">
+<div id="ojs-cell-14-1" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-13-2" data-nodetype="declaration">
+<div id="ojs-cell-14-2" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb14" data-startfrom="151" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 150;"><span id="cb14-151"><a href="#cb14-151" aria-hidden="true" tabindex="-1"></a>d_row <span class="op">=</span> {</span>
-<span id="cb14-152"><a href="#cb14-152" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Assuming `count` and `data_pairs` are already defined</span></span>
-<span id="cb14-153"><a href="#cb14-153" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> newElement <span class="op">=</span> { <span class="op">...</span>df[count] }<span class="op">;</span> <span class="co">// Create a shallow copy of the original element</span></span>
-<span id="cb14-154"><a href="#cb14-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-155"><a href="#cb14-155" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (decision <span class="op">!==</span> <span class="kw">null</span>) {</span>
-<span id="cb14-156"><a href="#cb14-156" aria-hidden="true" tabindex="-1"></a>    newElement<span class="op">.</span><span class="at">similarity</span> <span class="op">=</span> decision<span class="op">.</span><span class="at">decision</span><span class="op">;</span> <span class="co">// Update the "field" property with the value of `decision.decision`</span></span>
-<span id="cb14-157"><a href="#cb14-157" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb14-158"><a href="#cb14-158" aria-hidden="true" tabindex="-1"></a>    newElement<span class="op">.</span><span class="at">similarity</span> <span class="op">=</span> <span class="st">"no decision yet"</span><span class="op">;</span> <span class="co">// Set the "field" property to "nothing" if `decision.decision` is null</span></span>
-<span id="cb14-159"><a href="#cb14-159" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb14-160"><a href="#cb14-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-161"><a href="#cb14-161" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> newElement<span class="op">;</span></span>
-<span id="cb14-162"><a href="#cb14-162" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-14" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb15" data-startfrom="166" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 165;"><span id="cb15-166"><a href="#cb15-166" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">serialize</span> (data) {</span>
-<span id="cb15-167"><a href="#cb15-167" aria-hidden="true" tabindex="-1"></a> <span class="kw">let</span> s <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(data)<span class="op">;</span></span>
-<span id="cb15-168"><a href="#cb15-168" aria-hidden="true" tabindex="-1"></a> <span class="cf">return</span> <span class="kw">new</span> <span class="bu">Blob</span>([s]<span class="op">,</span> {<span class="dt">type</span><span class="op">:</span> <span class="st">"application/json"</span>}) </span>
-<span id="cb15-169"><a href="#cb15-169" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb15" data-startfrom="163" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 162;"><span id="cb15-163"><a href="#cb15-163" aria-hidden="true" tabindex="-1"></a>d_row <span class="op">=</span> {</span>
+<span id="cb15-164"><a href="#cb15-164" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Assuming `count` and `data_pairs` are already defined</span></span>
+<span id="cb15-165"><a href="#cb15-165" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> newElement <span class="op">=</span> { <span class="op">...</span>df[count] }<span class="op">;</span> <span class="co">// Create a shallow copy of the original element</span></span>
+<span id="cb15-166"><a href="#cb15-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-167"><a href="#cb15-167" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (decision <span class="op">!==</span> <span class="kw">null</span>) {</span>
+<span id="cb15-168"><a href="#cb15-168" aria-hidden="true" tabindex="-1"></a>    newElement<span class="op">.</span><span class="at">similarity</span> <span class="op">=</span> decision<span class="op">.</span><span class="at">decision</span><span class="op">;</span> <span class="co">// Update the "field" property with the value of `decision.decision`</span></span>
+<span id="cb15-169"><a href="#cb15-169" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb15-170"><a href="#cb15-170" aria-hidden="true" tabindex="-1"></a>    newElement<span class="op">.</span><span class="at">similarity</span> <span class="op">=</span> <span class="st">"no decision yet"</span><span class="op">;</span> <span class="co">// Set the "field" property to "nothing" if `decision.decision` is null</span></span>
+<span id="cb15-171"><a href="#cb15-171" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb15-172"><a href="#cb15-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-173"><a href="#cb15-173" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> newElement<span class="op">;</span></span>
+<span id="cb15-174"><a href="#cb15-174" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-15" data-nodetype="declaration">
 
@@ -440,9 +445,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb16" data-startfrom="174" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 173;"><span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> DuckDBClient<span class="op">.</span><span class="fu">of</span>({</span>
-<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a>  <span class="dt">match</span> <span class="op">:</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">"example.csv"</span>)</span>
-<span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb16" data-startfrom="178" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 177;"><span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">serialize</span> (data) {</span>
+<span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a> <span class="kw">let</span> s <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(data)<span class="op">;</span></span>
+<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a> <span class="cf">return</span> <span class="kw">new</span> <span class="bu">Blob</span>([s]<span class="op">,</span> {<span class="dt">type</span><span class="op">:</span> <span class="st">"application/json"</span>}) </span>
+<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-16" data-nodetype="declaration">
 
@@ -450,31 +456,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb17" data-startfrom="181" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 180;"><span id="cb17-181"><a href="#cb17-181" aria-hidden="true" tabindex="-1"></a>table_names <span class="op">=</span> db<span class="op">.</span><span class="fu">sql</span><span class="vs">`SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'match'`</span></span>
-<span id="cb17-182"><a href="#cb17-182" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> table_names<span class="op">.</span><span class="fu">flatMap</span>(item <span class="kw">=&gt;</span> item<span class="op">.</span><span class="at">column_name</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb17" data-startfrom="186" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 185;"><span id="cb17-186"><a href="#cb17-186" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> DuckDBClient<span class="op">.</span><span class="fu">of</span>({</span>
+<span id="cb17-187"><a href="#cb17-187" aria-hidden="true" tabindex="-1"></a>  <span class="dt">match</span> <span class="op">:</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">"example.csv"</span>)</span>
+<span id="cb17-188"><a href="#cb17-188" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-17-1" data-nodetype="declaration">
+<div id="ojs-cell-17" data-nodetype="declaration">
 
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-17-2" data-nodetype="declaration">
-
-</div>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb18" data-startfrom="186" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 185;"><span id="cb18-186"><a href="#cb18-186" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> db<span class="op">.</span><span class="fu">sql</span><span class="vs">`SELECT * FROM match`</span></span>
-<span id="cb18-187"><a href="#cb18-187" aria-hidden="true" tabindex="-1"></a>df_query <span class="op">=</span> db<span class="op">.</span><span class="fu">query</span>(</span>
-<span id="cb18-188"><a href="#cb18-188" aria-hidden="true" tabindex="-1"></a>  <span class="vs">`SELECT </span><span class="sc">${</span>columns_to_show<span class="op">.</span><span class="fu">map</span>(l <span class="kw">=&gt;</span> l <span class="op">+</span> <span class="st">"_query"</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">', '</span>)<span class="sc">}</span><span class="vs"> FROM match`</span></span>
-<span id="cb18-189"><a href="#cb18-189" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb18-190"><a href="#cb18-190" aria-hidden="true" tabindex="-1"></a>df_match <span class="op">=</span> db<span class="op">.</span><span class="fu">query</span>(</span>
-<span id="cb18-191"><a href="#cb18-191" aria-hidden="true" tabindex="-1"></a>  <span class="vs">`SELECT </span><span class="sc">${</span>columns_to_show<span class="op">.</span><span class="fu">map</span>(l <span class="kw">=&gt;</span> l <span class="op">+</span> <span class="st">"_match"</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">', '</span>)<span class="sc">}</span><span class="vs"> FROM match`</span></span>
-<span id="cb18-192"><a href="#cb18-192" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb18" data-startfrom="193" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 192;"><span id="cb18-193"><a href="#cb18-193" aria-hidden="true" tabindex="-1"></a>table_names <span class="op">=</span> db<span class="op">.</span><span class="fu">sql</span><span class="vs">`SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'match'`</span></span>
+<span id="cb18-194"><a href="#cb18-194" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> table_names<span class="op">.</span><span class="fu">flatMap</span>(item <span class="kw">=&gt;</span> item<span class="op">.</span><span class="at">column_name</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-18-1" data-nodetype="declaration">
@@ -489,17 +482,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-18-3" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb19" data-startfrom="196" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 195;"><span id="cb19-196"><a href="#cb19-196" aria-hidden="true" tabindex="-1"></a>unique_columns_dup <span class="op">=</span> column_names<span class="op">.</span><span class="fu">map</span>(columnName <span class="kw">=&gt;</span> columnName<span class="op">.</span><span class="fu">replace</span>(<span class="st">"_query"</span><span class="op">,</span> <span class="st">""</span>)<span class="op">.</span><span class="fu">replace</span>(<span class="st">"_match"</span><span class="op">,</span> <span class="st">""</span>))<span class="op">;</span></span>
-<span id="cb19-197"><a href="#cb19-197" aria-hidden="true" tabindex="-1"></a>unique_columns <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>(<span class="kw">new</span> <span class="bu">Set</span>(unique_columns_dup))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb19" data-startfrom="198" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 197;"><span id="cb19-198"><a href="#cb19-198" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> db<span class="op">.</span><span class="fu">sql</span><span class="vs">`SELECT * FROM match`</span></span>
+<span id="cb19-199"><a href="#cb19-199" aria-hidden="true" tabindex="-1"></a>df_query <span class="op">=</span> db<span class="op">.</span><span class="fu">query</span>(</span>
+<span id="cb19-200"><a href="#cb19-200" aria-hidden="true" tabindex="-1"></a>  <span class="vs">`SELECT </span><span class="sc">${</span>columns_to_show<span class="op">.</span><span class="fu">map</span>(l <span class="kw">=&gt;</span> l <span class="op">+</span> <span class="st">"_query"</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">', '</span>)<span class="sc">}</span><span class="vs"> FROM match`</span></span>
+<span id="cb19-201"><a href="#cb19-201" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-202"><a href="#cb19-202" aria-hidden="true" tabindex="-1"></a>df_match <span class="op">=</span> db<span class="op">.</span><span class="fu">query</span>(</span>
+<span id="cb19-203"><a href="#cb19-203" aria-hidden="true" tabindex="-1"></a>  <span class="vs">`SELECT </span><span class="sc">${</span>columns_to_show<span class="op">.</span><span class="fu">map</span>(l <span class="kw">=&gt;</span> l <span class="op">+</span> <span class="st">"_match"</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">', '</span>)<span class="sc">}</span><span class="vs"> FROM match`</span></span>
+<span id="cb19-204"><a href="#cb19-204" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-19-1" data-nodetype="declaration">
@@ -514,26 +505,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-19-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb20" data-startfrom="202" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 201;"><span id="cb20-202"><a href="#cb20-202" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">reshape_row</span>(row) {</span>
-<span id="cb20-203"><a href="#cb20-203" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">entries</span>(row)<span class="op">.</span><span class="fu">map</span>(([column<span class="op">,</span> value]) <span class="kw">=&gt;</span> ({ column<span class="op">,</span> value }))<span class="op">;</span></span>
-<span id="cb20-204"><a href="#cb20-204" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb20" data-startfrom="208" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 207;"><span id="cb20-208"><a href="#cb20-208" aria-hidden="true" tabindex="-1"></a>unique_columns_dup <span class="op">=</span> column_names<span class="op">.</span><span class="fu">map</span>(columnName <span class="kw">=&gt;</span> columnName<span class="op">.</span><span class="fu">replace</span>(<span class="st">"_query"</span><span class="op">,</span> <span class="st">""</span>)<span class="op">.</span><span class="fu">replace</span>(<span class="st">"_match"</span><span class="op">,</span> <span class="st">""</span>))<span class="op">;</span></span>
+<span id="cb20-209"><a href="#cb20-209" aria-hidden="true" tabindex="-1"></a>unique_columns <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>(<span class="kw">new</span> <span class="bu">Set</span>(unique_columns_dup))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-20" data-nodetype="declaration">
+<div>
+<div id="ojs-cell-20-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-20-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb21" data-startfrom="214" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 213;"><span id="cb21-214"><a href="#cb21-214" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">reshape_row</span>(row) {</span>
+<span id="cb21-215"><a href="#cb21-215" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">entries</span>(row)<span class="op">.</span><span class="fu">map</span>(([column<span class="op">,</span> value]) <span class="kw">=&gt;</span> ({ column<span class="op">,</span> value }))<span class="op">;</span></span>
+<span id="cb21-216"><a href="#cb21-216" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-21" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb21" data-startfrom="209" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 208;"><span id="cb21-209"><a href="#cb21-209" aria-hidden="true" tabindex="-1"></a><span class="bu">Object</span><span class="op">.</span><span class="fu">defineProperty</span>(<span class="bu">String</span><span class="op">.</span><span class="at">prototype</span><span class="op">,</span> <span class="st">'capitalize'</span><span class="op">,</span> {</span>
-<span id="cb21-210"><a href="#cb21-210" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="kw">function</span>() {</span>
-<span id="cb21-211"><a href="#cb21-211" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="fu">charAt</span>(<span class="dv">0</span>)<span class="op">.</span><span class="fu">toUpperCase</span>() <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">slice</span>(<span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb21-212"><a href="#cb21-212" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb21-213"><a href="#cb21-213" aria-hidden="true" tabindex="-1"></a>  <span class="dt">enumerable</span><span class="op">:</span> <span class="kw">false</span></span>
-<span id="cb21-214"><a href="#cb21-214" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb22" data-startfrom="221" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 220;"><span id="cb22-221"><a href="#cb22-221" aria-hidden="true" tabindex="-1"></a><span class="bu">Object</span><span class="op">.</span><span class="fu">defineProperty</span>(<span class="bu">String</span><span class="op">.</span><span class="at">prototype</span><span class="op">,</span> <span class="st">'capitalize'</span><span class="op">,</span> {</span>
+<span id="cb22-222"><a href="#cb22-222" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="kw">function</span>() {</span>
+<span id="cb22-223"><a href="#cb22-223" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="fu">charAt</span>(<span class="dv">0</span>)<span class="op">.</span><span class="fu">toUpperCase</span>() <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">slice</span>(<span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb22-224"><a href="#cb22-224" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb22-225"><a href="#cb22-225" aria-hidden="true" tabindex="-1"></a>  <span class="dt">enumerable</span><span class="op">:</span> <span class="kw">false</span></span>
+<span id="cb22-226"><a href="#cb22-226" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden">
-<div id="ojs-cell-21" data-nodetype="expression">
+<div id="ojs-cell-22" data-nodetype="expression">
 
 </div>
 </div>
@@ -544,7 +560,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </main> <!-- /main -->
 
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"viewof columns_to_show = Inputs.checkbox(unique_columns, {label: \"Colonnes à afficher\", value: unique_columns})\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"grid_two_dataframes = html`<div style=\"\n            background: #fff;\n            margin: 0;\n            border: none ;\n            display: grid;\n            width: ${screen.width};\n            grid-template-areas: \n              'a b'\n              'c c'\n              'd d'\n              'e e';\n            grid-gap: 10px;\n          \">\n            <div name=\"a\" style=\"grid-area: a; position: relative;\">${viewof tt1}</div>\n            <div name=\"b\" style=\"grid-area: b; position: relative;\">${viewof tt2}</div>\n            <div name=\"c\" style=\"grid-area: c; position: relative;\">${viewof decision}</div>\n            <div name=\"d\" style=\"grid-area: d; position: relative;\">${viewof count}</div>\n            <div name=\"e\" style=\"grid-area: e; position: relative;\">${viewof download}</div>\n          </div>`\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"viewof download = DOM.download(serialize(d), null, \"Sauvegarder les annotations 👇 dans un fichier\")\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"array1 = reshape_row(df_query[count])\narray2 = reshape_row(df_match[count])\n\nfunction create_color_mapping(array1, array2) {\n  const mapping = {};\n  array1.forEach((obj1, index) => {\n    const obj2 = array2[index];\n    const key = obj1.value; // Use obj1.value as the key\n\n    if (obj1.value === obj2.value) {\n      mapping[key] = \"#5f9c5f\";\n    } else {\n      mapping[key] = \"#fc4747\";\n    }\n  });\n  return mapping\n}\n\nfunction create_color_map(key, array1) {\n  const value = array1[key];\n  const backgroundColor = value ;\n  return html`<div style=\"background: ${backgroundColor};text-align:right;padding:2px 5px;\">${key}</div>`;\n}\nfunction create_variable_row(d){\n  const d_nice = d.replace(\"_query\", \"\").capitalize().replace(\"_\", \" \") ;\n  return html`<b>${d_nice}</b>`;\n}\n\ncolors_data1 = create_color_mapping(array1, array2)\ncolors_data2 = create_color_mapping(array2, array1)\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"viewof tt1 = Inputs.table(\n  reshape_row(\n    df_query[count]\n  ),\n    {\n    format: {\n      \"value\": d => create_color_map(d, colors_data1),\n      \"column\": d => create_variable_row(d)\n      },\n    header: {\"value\": \"Valeur observée\", \"column\": \"Variable d'intérêt\"}\n  }\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-6","inline":false,"source":"viewof tt2 = Inputs.table(\n  reshape_row(df_match[count]),\n  {\n    columns: [\"value\"],\n    format: {\"value\": d => create_color_map(d, colors_data2) },\n    header: {\"value\": \"Paire potentielle\"}\n  }\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-7","inline":false,"source":"url_file = \"https://raw.githubusercontent.com/J535D165/recordlinkage-annotator/master/examples/annotation_dishonesty.json\"\ndata_pairs = d3.json(\n  url_file\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-8","inline":false,"source":"decision_label = [\n  {text: \"Accepter 👍️\", color: \"green\", decision: \"Accepted\"},\n  {text: \"Rejeter 👎️\", color: \"red\", decision: \"Rejected\"},\n  null\n]\n"},{"methodName":"interpret","cellName":"ojs-cell-9","inline":false,"source":"viewof decision = (count, Inputs.radio(\n  decision_label,\n  {label: \"Décision\",\n   format: x => (x == null) ? html`<span style=\"border-bottom: solid 2px blue; margin-bottom: -2px;\">Décision à prendre 🤔` : html`<span style=\"text-transform: capitalize; border-bottom: solid 2px ${x.color}; margin-bottom: -2px;\">${x.text}`,\n   value: null\n  }\n))\n"},{"methodName":"interpret","cellName":"ojs-cell-10","inline":false,"source":"viewof count = Inputs.button(\"Nouvel exemple à annoter !\")\n"},{"methodName":"interpret","cellName":"ojs-cell-11","inline":false,"source":"Inputs.table(x)\n"},{"methodName":"interpret","cellName":"ojs-cell-12","inline":false,"source":"d = [];\n"},{"methodName":"interpret","cellName":"ojs-cell-13","inline":false,"source":"function push_mutable(d){\n  if (decision !== null) {\n      d.push(d_row);\n    }\n  return d ;\n}\nx = push_mutable(d)\n"},{"methodName":"interpret","cellName":"ojs-cell-14","inline":false,"source":"d_row = {\n  // Assuming `count` and `data_pairs` are already defined\n  const newElement = { ...df[count] }; // Create a shallow copy of the original element\n\n  if (decision !== null) {\n    newElement.similarity = decision.decision; // Update the \"field\" property with the value of `decision.decision`\n  } else {\n    newElement.similarity = \"no decision yet\"; // Set the \"field\" property to \"nothing\" if `decision.decision` is null\n  }\n\n  return newElement;\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-15","inline":false,"source":"function serialize (data) {\n let s = JSON.stringify(data);\n return new Blob([s], {type: \"application/json\"}) \n}\n"},{"methodName":"interpret","cellName":"ojs-cell-16","inline":false,"source":"db = DuckDBClient.of({\n  match : await FileAttachment(\"example.csv\")\n})\n"},{"methodName":"interpret","cellName":"ojs-cell-17","inline":false,"source":"table_names = db.sql`SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'match'`\ncolumn_names = table_names.flatMap(item => item.column_name)\n"},{"methodName":"interpret","cellName":"ojs-cell-18","inline":false,"source":"df = db.sql`SELECT * FROM match`\ndf_query = db.query(\n  `SELECT ${columns_to_show.map(l => l + \"_query\").join(', ')} FROM match`\n)\ndf_match = db.query(\n  `SELECT ${columns_to_show.map(l => l + \"_match\").join(', ')} FROM match`\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-19","inline":false,"source":"unique_columns_dup = column_names.map(columnName => columnName.replace(\"_query\", \"\").replace(\"_match\", \"\"));\nunique_columns = Array.from(new Set(unique_columns_dup))\n"},{"methodName":"interpret","cellName":"ojs-cell-20","inline":false,"source":"function reshape_row(row) {\n  return Object.entries(row).map(([column, value]) => ({ column, value }));\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-21","inline":false,"source":"Object.defineProperty(String.prototype, 'capitalize', {\n  value: function() {\n    return this.charAt(0).toUpperCase() + this.slice(1);\n  },\n  enumerable: false\n});\n"},{"methodName":"interpretQuiet","source":"shinyInput('columns_to_show')"},{"methodName":"interpretQuiet","source":"shinyInput('download')"},{"methodName":"interpretQuiet","source":"shinyInput('tt1')"},{"methodName":"interpretQuiet","source":"shinyInput('tt2')"},{"methodName":"interpretQuiet","source":"shinyInput('decision')"},{"methodName":"interpretQuiet","source":"shinyInput('count')"}]}
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"viewof columns_to_show = Inputs.checkbox(unique_columns, {label: \"Colonnes à afficher\", value: unique_columns})\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"grid_two_dataframes = html`<div style=\"\n            background: #fff;\n            margin: 0;\n            border: none ;\n            display: grid;\n            width: ${screen.width};\n            grid-template-areas: \n              'a b'\n              'c c'\n              'd d'\n              'e e';\n            grid-gap: 10px;\n          \">\n            <div name=\"a\" style=\"grid-area: a; position: relative;\">${viewof tt1}</div>\n            <div name=\"b\" style=\"grid-area: b; position: relative;\">${viewof tt2}</div>\n            <div name=\"c\" style=\"grid-area: c; position: relative;\">${viewof decision}</div>\n            <div name=\"d\" style=\"grid-area: d; position: relative;\">${viewof count}</div>\n            <div name=\"e\" style=\"grid-area: e; position: relative;\">${viewof download}</div>\n          </div>`\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"viewof download = DOM.download(serialize(d), null, \"Sauvegarder les annotations 👇 dans un fichier\")\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"array1 = reshape_row(df_query[count])\narray2 = reshape_row(df_match[count])\n\nfunction create_color_mapping(array1, array2) {\n  const mapping = {};\n  array1.forEach((obj1, index) => {\n    const obj2 = array2[index];\n    const key = obj1.value; // Use obj1.value as the key\n\n    if (obj1.value === obj2.value) {\n      mapping[key] = \"#5f9c5f\";\n    } else {\n      mapping[key] = \"#fc4747\";\n    }\n  });\n  return mapping\n}\n\nfunction create_color_map(key, array1) {\n  const value = array1[key];\n  const backgroundColor = value ;\n  return html`<div style=\"background: ${backgroundColor};text-align:right;padding:2px 5px;\">${key}</div>`;\n}\nfunction create_variable_row(d){\n  const d_nice = d.replace(\"_query\", \"\").capitalize().replace(\"_\", \" \") ;\n  return html`<b>${d_nice}</b>`;\n}\n\ncolors_data1 = create_color_mapping(array1, array2)\ncolors_data2 = create_color_mapping(array2, array1)\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"viewof tt1 = Inputs.table(\n  reshape_row(\n    df_query[count]\n  ),\n    {\n    format: {\n      \"value\": d => create_color_map(d, colors_data1),\n      \"column\": d => create_variable_row(d)\n      },\n    header: {\"value\": \"Valeur observée\", \"column\": \"Variable d'intérêt\"}\n  }\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-6","inline":false,"source":"viewof tt2 = Inputs.table(\n  reshape_row(df_match[count]),\n  {\n    columns: [\"value\"],\n    format: {\"value\": d => create_color_map(d, colors_data2) },\n    header: {\"value\": \"Paire potentielle\"}\n  }\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-7","inline":false,"source":"url_file = \"https://raw.githubusercontent.com/J535D165/recordlinkage-annotator/master/examples/annotation_dishonesty.json\"\ndata_pairs = d3.json(\n  url_file\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-8","inline":false,"source":"decision_label = [\n  {text: \"Accepter 👍️\", color: \"green\", decision: \"Accepted\"},\n  {text: \"Rejeter 👎️\", color: \"red\", decision: \"Rejected\"},\n  null\n]\n"},{"methodName":"interpret","cellName":"ojs-cell-9","inline":false,"source":"viewof decision = (count, Inputs.radio(\n  decision_label,\n  {label: \"Décision\",\n   format: x => (x == null) ? html`<span style=\"border-bottom: solid 2px blue; margin-bottom: -2px;\">Décision à prendre 🤔` : html`<span style=\"text-transform: capitalize; border-bottom: solid 2px ${x.color}; margin-bottom: -2px;\">${x.text}`,\n   value: null\n  }\n))\n"},{"methodName":"interpret","cellName":"ojs-cell-10","inline":false,"source":"viewof count = Inputs.button(\"Nouvel exemple à annoter !\")\n"},{"methodName":"interpret","cellName":"ojs-cell-11","inline":false,"source":"function color_accepted(d) {\n  const backgroundColor = \"Accepted\" ? \"#5f9c5f\" : \"#fc4747\"; ;\n  return html`<div style=\"background: ${backgroundColor};text-align:right;padding:2px 5px;\">${d}</div>`;\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-12","inline":false,"source":"Inputs.table(\n  x,\n  {format: {\n      \"similarity\": d => color_accepted(d)\n  }\n  })\n"},{"methodName":"interpret","cellName":"ojs-cell-13","inline":false,"source":"d = [];\n"},{"methodName":"interpret","cellName":"ojs-cell-14","inline":false,"source":"function push_mutable(d){\n  if (decision !== null) {\n      d.push(d_row);\n    }\n  return d ;\n}\nx = push_mutable(d)\n"},{"methodName":"interpret","cellName":"ojs-cell-15","inline":false,"source":"d_row = {\n  // Assuming `count` and `data_pairs` are already defined\n  const newElement = { ...df[count] }; // Create a shallow copy of the original element\n\n  if (decision !== null) {\n    newElement.similarity = decision.decision; // Update the \"field\" property with the value of `decision.decision`\n  } else {\n    newElement.similarity = \"no decision yet\"; // Set the \"field\" property to \"nothing\" if `decision.decision` is null\n  }\n\n  return newElement;\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-16","inline":false,"source":"function serialize (data) {\n let s = JSON.stringify(data);\n return new Blob([s], {type: \"application/json\"}) \n}\n"},{"methodName":"interpret","cellName":"ojs-cell-17","inline":false,"source":"db = DuckDBClient.of({\n  match : await FileAttachment(\"example.csv\")\n})\n"},{"methodName":"interpret","cellName":"ojs-cell-18","inline":false,"source":"table_names = db.sql`SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'match'`\ncolumn_names = table_names.flatMap(item => item.column_name)\n"},{"methodName":"interpret","cellName":"ojs-cell-19","inline":false,"source":"df = db.sql`SELECT * FROM match`\ndf_query = db.query(\n  `SELECT ${columns_to_show.map(l => l + \"_query\").join(', ')} FROM match`\n)\ndf_match = db.query(\n  `SELECT ${columns_to_show.map(l => l + \"_match\").join(', ')} FROM match`\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-20","inline":false,"source":"unique_columns_dup = column_names.map(columnName => columnName.replace(\"_query\", \"\").replace(\"_match\", \"\"));\nunique_columns = Array.from(new Set(unique_columns_dup))\n"},{"methodName":"interpret","cellName":"ojs-cell-21","inline":false,"source":"function reshape_row(row) {\n  return Object.entries(row).map(([column, value]) => ({ column, value }));\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-22","inline":false,"source":"Object.defineProperty(String.prototype, 'capitalize', {\n  value: function() {\n    return this.charAt(0).toUpperCase() + this.slice(1);\n  },\n  enumerable: false\n});\n"},{"methodName":"interpretQuiet","source":"shinyInput('columns_to_show')"},{"methodName":"interpretQuiet","source":"shinyInput('download')"},{"methodName":"interpretQuiet","source":"shinyInput('tt1')"},{"methodName":"interpretQuiet","source":"shinyInput('tt2')"},{"methodName":"interpretQuiet","source":"shinyInput('decision')"},{"methodName":"interpretQuiet","source":"shinyInput('count')"}]}
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
