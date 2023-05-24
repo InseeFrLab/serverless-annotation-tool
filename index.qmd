@@ -61,7 +61,10 @@ function create_color_map(key, array1) {
   const backgroundColor = value ;
   return html`<div style="background: ${backgroundColor};text-align:right;padding:2px 5px;">${key}</div>`;
 }
-
+function create_variable_row(d){
+  const d_nice = d.replace("_query", "").capitalize().replace("_", " ") ;
+  return html`<b>${d_nice}</b>`;
+}
 
 colors_data1 = create_color_mapping(array1, array2)
 colors_data2 = create_color_mapping(array2, array1)
@@ -74,8 +77,11 @@ viewof tt1 = Inputs.table(
     df_query[count]
   ),
     {
-    format: {"value": d => create_color_map(d, colors_data1) },
-    header: {"value": "Valeur observée"}
+    format: {
+      "value": d => create_color_map(d, colors_data1),
+      "column": d => create_variable_row(d)
+      },
+    header: {"value": "Valeur observée", "column": "Variable d'intérêt"}
   }
 )
 ```
@@ -197,4 +203,14 @@ unique_columns = Array.from(new Set(unique_columns_dup))
 function reshape_row(row) {
   return Object.entries(row).map(([column, value]) => ({ column, value }));
 }
+```
+
+```{ojs}
+//| output: false
+Object.defineProperty(String.prototype, 'capitalize', {
+  value: function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+  },
+  enumerable: false
+});
 ```
