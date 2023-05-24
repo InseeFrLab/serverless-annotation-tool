@@ -37,19 +37,44 @@ grid_two_dataframes = html`<div style="
 viewof download = DOM.download(serialize(d), null, "Sauvegarder les annotations 👇 dans un fichier")
 ```
 
+```{ojs}
+array1 = reshape_row(df_query[count])
+array2 = reshape_row(df_match[count])
+
+function create_color_mapping(array1, array2) {
+  const mapping = {};
+  array1.forEach((obj1, index) => {
+    const obj2 = array2[index];
+    const key = obj1.value; // Use obj1.value as the key
+
+    if (obj1.value === obj2.value) {
+      mapping[key] = "green";
+    } else {
+      mapping[key] = "red";
+    }
+  });
+  return mapping
+}
+
+function create_color_map(key, array1) {
+  const value = array1[key];
+  const backgroundColor = value ;
+  return html`<div style="background: ${backgroundColor}">${key}</div>`;
+}
+
+
+colors_data1 = create_color_mapping(array1, array2)
+colors_data2 = create_color_mapping(array2, array1)
+```
+
 
 ```{ojs}
-
-bgcol = value => htl.html`<div style="background: ${
- value === "Pignon" ?  "#a9e4f3" : "#fde9d2"
-}">${value}`
-
 viewof tt1 = Inputs.table(
   reshape_row(
     df_query[count]
   ),
     {
-    format: {"value": d => bgcol(d) },
+    format: {"value": d => create_color_map(d, colors_data1) },
     header: {"value": "Valeur observée"}
   }
 )
@@ -60,7 +85,7 @@ viewof tt2 = Inputs.table(
   reshape_row(df_match[count]),
   {
     columns: ["value"],
-    format: {"value": d => bgcol(d) },
+    format: {"value": d => create_color_map(d, colors_data2) },
     header: {"value": "Paire potentielle"}
   }
 )
