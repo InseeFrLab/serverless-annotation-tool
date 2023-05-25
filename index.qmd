@@ -4,10 +4,9 @@ echo: false
 ---
 
 ```{ojs}
-viewof csvfile = Inputs.file({label: "Fichier à annoter", accept: ".csv", required: true})
+viewof csvfile = Inputs.file({label: md`Fichier à annoter ([Exemple ici](./example.csv))`, accept: ".csv", required: true})
 ```
 
-<br>
 
 ```{ojs}
 viewof columns_to_show = Inputs.checkbox(
@@ -85,8 +84,18 @@ progress = {
 
 
 ```{ojs}
+viewof filename_input = Inputs.text(
+    {
+      label: html`Nom du fichier`,
+      placeholder: "annotations.json",
+      value: "annotations.json"  
+      }
+)
+```
+
+```{ojs}
 //| echo: false
-viewof download = DOM.download(serialize(x), null, "Sauvegarder les annotations 👇 dans un fichier")
+viewof download = DOM.download(serialize(x), filename_input.replace(".json", ""), "Sauvegarder les annotations 👇 dans un fichier")
 ```
 
 ```{ojs}
@@ -227,15 +236,24 @@ d_row = {
 
   if (decision !== null) {
     newElement.similarity = decision.decision; // Update the "field" property with the value of `decision.decision`
-    newElement.justification = text_input ;
+    newElement.justification = "no decision yet" ;
     newElement.count = current_row ;
   } else {
     newElement.count = current_row ;
     newElement.similarity = "no decision yet"; // Set the "field" property to "nothing" if `decision.decision` is null
-    newElement.justification = text_input ;
+    //newElement.justification = text_input ;
   }
 
   return newElement;
+}
+```
+
+```{ojs}
+//| output: false
+{
+  if (x[current_row]) {
+    x[current_row].justification = text_input ;
+  }
 }
 ```
 
