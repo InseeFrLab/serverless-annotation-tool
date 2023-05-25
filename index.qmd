@@ -228,7 +228,7 @@ function serialize (data) {
 
 ```{ojs}
 db = DuckDBClient.of({
-  match : FileAttachment("example.csv")
+  match : await csvfile.csv()
 })
 ```
 
