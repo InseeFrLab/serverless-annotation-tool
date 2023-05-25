@@ -4,7 +4,14 @@ echo: false
 ---
 
 ```{ojs}
-viewof columns_to_show = Inputs.checkbox(unique_columns, {label: "Colonnes à afficher", value: unique_columns})
+viewof csvfile = Inputs.file({label: "CSV file", accept: ".csv", required: true})
+```
+
+
+```{ojs}
+viewof columns_to_show = Inputs.checkbox(
+  unique_columns,
+  {label: "Colonnes à afficher", value: unique_columns, format: d => d.replace("_", " ").capitalize()})
 ```
 
 
@@ -52,8 +59,8 @@ viewof text_input = (count,
 ```
 
 ```{ojs}
-share = Math.round(100*current_row/(Number(n_rows)-1))
-html`<div style="background:green;width:${share}%;height:33px;">`
+share = Math.round(100*current_row/Number(n_rows))
+html`<div style="background:green;width:${share}%;height:12px;">`
 ```
 
 
