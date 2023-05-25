@@ -59,7 +59,7 @@ viewof text_input = (count,
 ```
 
 ```{ojs}
-share = Math.round(100*current_row/Number(n_rows))
+share = Math.round(100*max_count/Number(n_rows))
 html`<div style="background:green;width:${share}%;height:12px;">`
 ```
 
@@ -250,6 +250,7 @@ n_rows_sql = db.sql`SELECT COUNT(*) AS COUNT FROM match`
 
 ```{ojs}
 n_rows = n_rows_sql[0]['COUNT']
+max_count = Math.min(Number(n_rows),count)
 current_row = Math.min(Number(n_rows)-1,count)
 ```
 
