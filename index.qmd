@@ -4,9 +4,10 @@ echo: false
 ---
 
 ```{ojs}
-viewof csvfile = Inputs.file({label: "CSV file", accept: ".csv", required: true})
+viewof csvfile = Inputs.file({label: "Fichier à annoter", accept: ".csv", required: true})
 ```
 
+<br>
 
 ```{ojs}
 viewof columns_to_show = Inputs.checkbox(
@@ -14,42 +15,48 @@ viewof columns_to_show = Inputs.checkbox(
   {label: "Colonnes à afficher", value: unique_columns, format: d => d.replace("_", " ").capitalize()})
 ```
 
-
 ```{ojs}
 //| echo: false
-grid_two_dataframes = html`<div style="
-            background: #fff;
-            margin: 0;
-            border: none ;
-            display: grid;
-            width: ${screen.width};
-            grid-template-areas: 
-              'a b'
-              'c c'
-              'f f'
-              'd d'
-              'e e';
-            grid-gap: 10px;
-          ">
-            <div name="a" style="grid-area: a; position: relative;">${viewof tt1}</div>
-            <div name="b" style="grid-area: b; position: relative;">${viewof tt2}</div>
-            <div name="f" style="grid-area: f; position: relative;">${viewof text_input}</div>
-            <div name="c" style="grid-area: c; position: relative;">${viewof decision}</div>
-            <div name="d" style="grid-area: d; position: relative;">${viewof count}</div>
-            <div name="e" style="grid-area: e; position: relative;">${viewof download}</div>
-          </div>`
+//grid_two_dataframes = csvfile['name'] !== null ?
+grid_two_dataframes = await html`<div style="
+              background: #fff;
+              margin: 0;
+              border: none ;
+              display: grid;
+              width: ${screen.width};
+              grid-template-areas: 
+                'a b'
+                'c c'
+                'f d'
+                'g g'
+                'h h'
+                'e e'
+                ;
+              grid-gap: 10px;
+            ">
+              <div name="a" style="grid-area: a; position: relative;">${viewof tt1}</div>
+              <div name="b" style="grid-area: b; position: relative;">${viewof tt2}</div>
+              <div name="c" style="grid-area: c; position: relative;">${viewof decision}</div>
+              <div name="f" style="grid-area: f; position: relative;">${viewof text_input}</div>
+              <div name="d" style="grid-area: d; position: relative;">${viewof count}</div>
+              <div name="g" style="grid-area: g; position: relative;">${message_share}</div>
+              <div name="h" style="grid-area: h; position: relative;">${progress}</div>
+              <div name="e" style="grid-area: e; position: relative;">${viewof download}</div>
+            </div>`
+//: html`to be completed`
 ```
 
 ```{ojs}
 viewof text_input = (count,
-  Inputs.text({label: html`<b>Raison de la décision</b>`, placeholder: "Un texte explicatif"})
+  Inputs.text(
+    {label: html`<b>Raison de la décision</b>`,
+    disabled: decision == null,
+    placeholder: "Un texte explicatif"})
 )
 ```
 
-<br>
-
 ```{ojs}
-{
+message_share = {
   if (share < 10){
     return md`Vous avez annoté ${share}% des paires du fichier d'entrée`
   } else {
@@ -60,7 +67,20 @@ viewof text_input = (count,
 
 ```{ojs}
 share = Math.round(100*max_count/Number(n_rows))
-html`<div style="background:green;width:${share}%;height:12px;">`
+```
+
+```{ojs}
+progress = {
+  const width = 360;
+  const height = 20;
+  const context = DOM.context2d(width, height);
+  context.canvas.style.border = "solid 1px black";
+  const i = width*(share/100);
+  context.clearRect(0, 0, width, height);
+  context.fillStyle = 'green'
+  context.fillRect(0, 0, i, height);
+  yield context.canvas;
+}
 ```
 
 
@@ -174,12 +194,15 @@ function color_accepted(d) {
 ```
 
 ```{ojs}
-Inputs.table(
+viewof final_table = Promises.delay(
+  3000, //wait 3 seconds
+  Inputs.table(
   x,
   {format: {
       "similarity": d => color_accepted(d)
   }
   })
+)
 ```
 
 
