@@ -50,7 +50,7 @@ grid_two_dataframes = await html`<div style="
 viewof text_input = (count,
   Inputs.text(
     {label: html`<b>Raison de la décision</b>`,
-    disabled: decision == null,
+    //disabled: decision == null,
     placeholder: "Un texte explicatif"})
 )
 ```
@@ -194,6 +194,7 @@ function color_accepted(d) {
 ```
 
 ```{ojs}
+//| eval: false
 viewof final_table = Promises.delay(
   3000, //wait 3 seconds
   Inputs.table(
