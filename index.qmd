@@ -194,16 +194,12 @@ function color_accepted(d) {
 ```
 
 ```{ojs}
-//| eval: false
-viewof final_table = Promises.delay(
-  3000, //wait 3 seconds
-  Inputs.table(
+viewof final_table = Inputs.table(
   x,
   {format: {
       "similarity": d => color_accepted(d)
   }
   })
-)
 ```
 
 
