@@ -4,7 +4,7 @@ echo: false
 ---
 
 ```{ojs}
-viewof csvfile = Inputs.file({label: md`Fichier à annoter ([Exemple ici](./example.csv))`, accept: ".csv", required: true})
+viewof csvfile = Inputs.file({label: md`Fichier à annoter ([Exemple ici](https://raw.githubusercontent.com/linogaliana/serverless-annotation-tool/master/example.csv))`, accept: ".csv", required: true})
 ```
 
 
