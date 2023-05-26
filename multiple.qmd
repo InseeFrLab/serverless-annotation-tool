@@ -5,7 +5,7 @@ image: cats.jpg
 ---
 
 ```{ojs}
-html`<div name="file-import">${viewof csvfile2}</div>`
+html`<div name="file-import">${viewof csvfile}</div>`
 ```
 
 ```{ojs}
@@ -159,7 +159,7 @@ data
 
 ```{ojs}
 db = DuckDBClient.of({
-  match : await csvfile2.csv()
+  match : await csvfile.csv()
 })
 ```
 
@@ -208,7 +208,7 @@ widgets import
 ----------------->
 
 ```{ojs}
-viewof csvfile2 = Inputs.file({label: md`__Fichier à annoter__ 📁 ([Exemple ici](https://raw.githubusercontent.com/linogaliana/serverless-annotation-tool/master/example2.csv))`, accept: ".csv", required: true})
+viewof csvfile = Inputs.file({label: md`__Fichier à annoter__ 📁 ([Exemple ici](https://raw.githubusercontent.com/linogaliana/serverless-annotation-tool/master/example2.csv))`, accept: ".csv", required: true})
 ```
 
 {{< include _import.qmd >}}
@@ -269,5 +269,5 @@ dataframe final
 ```{ojs}
 viewof final_table = Inputs.table(
   x
-  })
+)
 ```

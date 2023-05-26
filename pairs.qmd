@@ -119,6 +119,10 @@ unique_columns = Array.from(new Set(unique_columns_dup))
 widgets import
 -------->
 
+```{ojs}
+viewof csvfile = Inputs.file({label: md`__Fichier à annoter__ 📁 ([Exemple ici](https://raw.githubusercontent.com/linogaliana/serverless-annotation-tool/master/example.csv))`, accept: ".csv", required: true})
+```
+
 {{< include _import.qmd >}}
 
 <!----
