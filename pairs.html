@@ -371,21 +371,21 @@ import et manipulation des données
 <!----
 widgets import
 -------->
-<!----
-csv import
----->
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb12" data-startfrom="128" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 127;"><span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a>viewof csvfile <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">file</span>({<span class="dt">label</span><span class="op">:</span> <span class="fu">md</span><span class="vs">`__Fichier à annoter__ 📁 ([Exemple ici](https://raw.githubusercontent.com/linogaliana/serverless-annotation-tool/master/example.csv))`</span><span class="op">,</span> <span class="dt">accept</span><span class="op">:</span> <span class="st">".csv"</span><span class="op">,</span> <span class="dt">required</span><span class="op">:</span> <span class="kw">true</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb12" data-startfrom="122" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 121;"><span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a>viewof csvfile <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">file</span>({<span class="dt">label</span><span class="op">:</span> <span class="fu">md</span><span class="vs">`__Fichier à annoter__ 📁 ([Exemple ici](https://raw.githubusercontent.com/linogaliana/serverless-annotation-tool/master/example.csv))`</span><span class="op">,</span> <span class="dt">accept</span><span class="op">:</span> <span class="st">".csv"</span><span class="op">,</span> <span class="dt">required</span><span class="op">:</span> <span class="kw">true</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-12" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
+<!----
+csv import
+---->
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb13" data-startfrom="137" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 136;"><span id="cb13-137"><a href="#cb13-137" aria-hidden="true" tabindex="-1"></a>viewof columns_to_show <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>(</span>
-<span id="cb13-138"><a href="#cb13-138" aria-hidden="true" tabindex="-1"></a>  unique_columns<span class="op">,</span></span>
-<span id="cb13-139"><a href="#cb13-139" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Colonnes à afficher"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> unique_columns<span class="op">,</span> <span class="dt">format</span><span class="op">:</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">replace</span>(<span class="st">"_"</span><span class="op">,</span> <span class="st">" "</span>)<span class="op">.</span><span class="fu">capitalize</span>()})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb13" data-startfrom="132" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 131;"><span id="cb13-132"><a href="#cb13-132" aria-hidden="true" tabindex="-1"></a>viewof columns_to_show <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>(</span>
+<span id="cb13-133"><a href="#cb13-133" aria-hidden="true" tabindex="-1"></a>  unique_columns<span class="op">,</span></span>
+<span id="cb13-134"><a href="#cb13-134" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Colonnes à afficher"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> unique_columns<span class="op">,</span> <span class="dt">format</span><span class="op">:</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">replace</span>(<span class="st">"_"</span><span class="op">,</span> <span class="st">" "</span>)<span class="op">.</span><span class="fu">capitalize</span>()})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-13" data-nodetype="declaration">
 
@@ -396,7 +396,7 @@ csv import
 barre de progrès et message
 -------->
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb14" data-startfrom="147" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 146;"><span id="cb14-147"><a href="#cb14-147" aria-hidden="true" tabindex="-1"></a>share <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(<span class="dv">100</span><span class="op">*</span>max_count<span class="op">/</span><span class="bu">Number</span>(n_rows))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb14" data-startfrom="141" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 140;"><span id="cb14-141"><a href="#cb14-141" aria-hidden="true" tabindex="-1"></a>share <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(<span class="dv">100</span><span class="op">*</span>max_count<span class="op">/</span><span class="bu">Number</span>(n_rows))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-14" data-nodetype="declaration">
 
@@ -407,13 +407,13 @@ barre de progrès et message
 export des annotations
 -------->
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb15" data-startfrom="154" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 153;"><span id="cb15-154"><a href="#cb15-154" aria-hidden="true" tabindex="-1"></a>viewof filename_input <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">text</span>(</span>
-<span id="cb15-155"><a href="#cb15-155" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb15-156"><a href="#cb15-156" aria-hidden="true" tabindex="-1"></a>      <span class="dt">label</span><span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;b&gt;Nom du fichier pour l'export&lt;/b&gt;📁`</span><span class="op">,</span></span>
-<span id="cb15-157"><a href="#cb15-157" aria-hidden="true" tabindex="-1"></a>      <span class="dt">placeholder</span><span class="op">:</span> <span class="st">"annotations.json"</span><span class="op">,</span></span>
-<span id="cb15-158"><a href="#cb15-158" aria-hidden="true" tabindex="-1"></a>      <span class="dt">value</span><span class="op">:</span> <span class="st">"annotations.json"</span>  </span>
-<span id="cb15-159"><a href="#cb15-159" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb15-160"><a href="#cb15-160" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb15" data-startfrom="151" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 150;"><span id="cb15-151"><a href="#cb15-151" aria-hidden="true" tabindex="-1"></a>viewof filename_input <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">text</span>(</span>
+<span id="cb15-152"><a href="#cb15-152" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb15-153"><a href="#cb15-153" aria-hidden="true" tabindex="-1"></a>      <span class="dt">label</span><span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;b&gt;Nom du fichier pour l'export&lt;/b&gt;📁`</span><span class="op">,</span></span>
+<span id="cb15-154"><a href="#cb15-154" aria-hidden="true" tabindex="-1"></a>      <span class="dt">placeholder</span><span class="op">:</span> <span class="st">"annotations.json"</span><span class="op">,</span></span>
+<span id="cb15-155"><a href="#cb15-155" aria-hidden="true" tabindex="-1"></a>      <span class="dt">value</span><span class="op">:</span> <span class="st">"annotations.json"</span>  </span>
+<span id="cb15-156"><a href="#cb15-156" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb15-157"><a href="#cb15-157" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-15" data-nodetype="declaration">
 
@@ -421,10 +421,10 @@ export des annotations
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb16" data-startfrom="164" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 163;"><span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">serialize</span> (data) {</span>
-<span id="cb16-165"><a href="#cb16-165" aria-hidden="true" tabindex="-1"></a> <span class="kw">let</span> s <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(data)<span class="op">;</span></span>
-<span id="cb16-166"><a href="#cb16-166" aria-hidden="true" tabindex="-1"></a> <span class="cf">return</span> <span class="kw">new</span> <span class="bu">Blob</span>([s]<span class="op">,</span> {<span class="dt">type</span><span class="op">:</span> <span class="st">"application/json"</span>}) </span>
-<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb16" data-startfrom="158" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 157;"><span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">serialize</span> (data) {</span>
+<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a> <span class="kw">let</span> s <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(data)<span class="op">;</span></span>
+<span id="cb16-160"><a href="#cb16-160" aria-hidden="true" tabindex="-1"></a> <span class="cf">return</span> <span class="kw">new</span> <span class="bu">Blob</span>([s]<span class="op">,</span> {<span class="dt">type</span><span class="op">:</span> <span class="st">"application/json"</span>}) </span>
+<span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-16" data-nodetype="declaration">
 
@@ -432,7 +432,7 @@ export des annotations
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb17" data-startfrom="174" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 173;"><span id="cb17-174"><a href="#cb17-174" aria-hidden="true" tabindex="-1"></a>viewof download <span class="op">=</span> DOM<span class="op">.</span><span class="fu">download</span>(<span class="fu">serialize</span>(x)<span class="op">,</span> filename_input<span class="op">.</span><span class="fu">replace</span>(<span class="st">".json"</span><span class="op">,</span> <span class="st">""</span>)<span class="op">,</span> <span class="st">"Sauvegarder les annotations 👇 dans un fichier"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb17" data-startfrom="169" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 168;"><span id="cb17-169"><a href="#cb17-169" aria-hidden="true" tabindex="-1"></a>viewof download <span class="op">=</span> DOM<span class="op">.</span><span class="fu">download</span>(<span class="fu">serialize</span>(x)<span class="op">,</span> filename_input<span class="op">.</span><span class="fu">replace</span>(<span class="st">".json"</span><span class="op">,</span> <span class="st">""</span>)<span class="op">,</span> <span class="st">"Sauvegarder les annotations 👇 dans un fichier"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-17" data-nodetype="declaration">
 
@@ -443,12 +443,12 @@ export des annotations
 widget decision
 ------->
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb18" data-startfrom="181" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 180;"><span id="cb18-181"><a href="#cb18-181" aria-hidden="true" tabindex="-1"></a>viewof text_input <span class="op">=</span> (count<span class="op">,</span></span>
-<span id="cb18-182"><a href="#cb18-182" aria-hidden="true" tabindex="-1"></a>  Inputs<span class="op">.</span><span class="fu">text</span>(</span>
-<span id="cb18-183"><a href="#cb18-183" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;b&gt;Raison de la décision&lt;/b&gt;`</span><span class="op">,</span></span>
-<span id="cb18-184"><a href="#cb18-184" aria-hidden="true" tabindex="-1"></a>    <span class="co">//disabled: decision == null,</span></span>
-<span id="cb18-185"><a href="#cb18-185" aria-hidden="true" tabindex="-1"></a>    <span class="dt">placeholder</span><span class="op">:</span> <span class="st">"Un texte explicatif"</span>})</span>
-<span id="cb18-186"><a href="#cb18-186" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb18" data-startfrom="177" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 176;"><span id="cb18-177"><a href="#cb18-177" aria-hidden="true" tabindex="-1"></a>viewof text_input <span class="op">=</span> (count<span class="op">,</span></span>
+<span id="cb18-178"><a href="#cb18-178" aria-hidden="true" tabindex="-1"></a>  Inputs<span class="op">.</span><span class="fu">text</span>(</span>
+<span id="cb18-179"><a href="#cb18-179" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">label</span><span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;b&gt;Raison de la décision&lt;/b&gt;`</span><span class="op">,</span></span>
+<span id="cb18-180"><a href="#cb18-180" aria-hidden="true" tabindex="-1"></a>    <span class="co">//disabled: decision == null,</span></span>
+<span id="cb18-181"><a href="#cb18-181" aria-hidden="true" tabindex="-1"></a>    <span class="dt">placeholder</span><span class="op">:</span> <span class="st">"Un texte explicatif"</span>})</span>
+<span id="cb18-182"><a href="#cb18-182" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-18" data-nodetype="declaration">
 
@@ -456,11 +456,11 @@ widget decision
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb19" data-startfrom="192" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 191;"><span id="cb19-192"><a href="#cb19-192" aria-hidden="true" tabindex="-1"></a>decision_label <span class="op">=</span> [</span>
-<span id="cb19-193"><a href="#cb19-193" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">text</span><span class="op">:</span> <span class="st">"Accepter 👍️"</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">"green"</span><span class="op">,</span> <span class="dt">decision</span><span class="op">:</span> <span class="st">"Accepted"</span>}<span class="op">,</span></span>
-<span id="cb19-194"><a href="#cb19-194" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">text</span><span class="op">:</span> <span class="st">"Rejeter 👎️"</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span> <span class="dt">decision</span><span class="op">:</span> <span class="st">"Rejected"</span>}<span class="op">,</span></span>
-<span id="cb19-195"><a href="#cb19-195" aria-hidden="true" tabindex="-1"></a>  <span class="kw">null</span></span>
-<span id="cb19-196"><a href="#cb19-196" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb19" data-startfrom="185" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 184;"><span id="cb19-185"><a href="#cb19-185" aria-hidden="true" tabindex="-1"></a>decision_label <span class="op">=</span> [</span>
+<span id="cb19-186"><a href="#cb19-186" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">text</span><span class="op">:</span> <span class="st">"Accepter 👍️"</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">"green"</span><span class="op">,</span> <span class="dt">decision</span><span class="op">:</span> <span class="st">"Accepted"</span>}<span class="op">,</span></span>
+<span id="cb19-187"><a href="#cb19-187" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">text</span><span class="op">:</span> <span class="st">"Rejeter 👎️"</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span> <span class="dt">decision</span><span class="op">:</span> <span class="st">"Rejected"</span>}<span class="op">,</span></span>
+<span id="cb19-188"><a href="#cb19-188" aria-hidden="true" tabindex="-1"></a>  <span class="kw">null</span></span>
+<span id="cb19-189"><a href="#cb19-189" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-19" data-nodetype="declaration">
 
@@ -468,13 +468,13 @@ widget decision
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb20" data-startfrom="206" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 205;"><span id="cb20-206"><a href="#cb20-206" aria-hidden="true" tabindex="-1"></a>viewof decision <span class="op">=</span> (count<span class="op">,</span> Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
-<span id="cb20-207"><a href="#cb20-207" aria-hidden="true" tabindex="-1"></a>  decision_label<span class="op">,</span></span>
-<span id="cb20-208"><a href="#cb20-208" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Décision"</span><span class="op">,</span></span>
-<span id="cb20-209"><a href="#cb20-209" aria-hidden="true" tabindex="-1"></a>   <span class="dt">format</span><span class="op">:</span> x <span class="kw">=&gt;</span> (x <span class="op">==</span> <span class="kw">null</span>) <span class="op">?</span> <span class="fu">html</span><span class="vs">`&lt;span style="border-bottom: solid 2px blue; margin-bottom: -2px;"&gt;Décision à prendre 🤔`</span> <span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;span style="text-transform: capitalize; border-bottom: solid 2px </span><span class="sc">${</span>x<span class="op">.</span><span class="at">color</span><span class="sc">}</span><span class="vs">; margin-bottom: -2px;"&gt;</span><span class="sc">${</span>x<span class="op">.</span><span class="at">text</span><span class="sc">}</span><span class="vs">`</span><span class="op">,</span></span>
-<span id="cb20-210"><a href="#cb20-210" aria-hidden="true" tabindex="-1"></a>   <span class="dt">value</span><span class="op">:</span> <span class="kw">null</span></span>
-<span id="cb20-211"><a href="#cb20-211" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb20-212"><a href="#cb20-212" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb20" data-startfrom="196" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 195;"><span id="cb20-196"><a href="#cb20-196" aria-hidden="true" tabindex="-1"></a>viewof decision <span class="op">=</span> (count<span class="op">,</span> Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
+<span id="cb20-197"><a href="#cb20-197" aria-hidden="true" tabindex="-1"></a>  decision_label<span class="op">,</span></span>
+<span id="cb20-198"><a href="#cb20-198" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Décision"</span><span class="op">,</span></span>
+<span id="cb20-199"><a href="#cb20-199" aria-hidden="true" tabindex="-1"></a>   <span class="dt">format</span><span class="op">:</span> x <span class="kw">=&gt;</span> (x <span class="op">==</span> <span class="kw">null</span>) <span class="op">?</span> <span class="fu">html</span><span class="vs">`&lt;span style="border-bottom: solid 2px blue; margin-bottom: -2px;"&gt;Décision à prendre 🤔`</span> <span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;span style="text-transform: capitalize; border-bottom: solid 2px </span><span class="sc">${</span>x<span class="op">.</span><span class="at">color</span><span class="sc">}</span><span class="vs">; margin-bottom: -2px;"&gt;</span><span class="sc">${</span>x<span class="op">.</span><span class="at">text</span><span class="sc">}</span><span class="vs">`</span><span class="op">,</span></span>
+<span id="cb20-200"><a href="#cb20-200" aria-hidden="true" tabindex="-1"></a>   <span class="dt">value</span><span class="op">:</span> <span class="kw">null</span></span>
+<span id="cb20-201"><a href="#cb20-201" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb20-202"><a href="#cb20-202" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-20" data-nodetype="declaration">
 
@@ -482,7 +482,7 @@ widget decision
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb21" data-startfrom="211" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 210;"><span id="cb21-211"><a href="#cb21-211" aria-hidden="true" tabindex="-1"></a>viewof count <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"Valider !"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb21" data-startfrom="210" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 209;"><span id="cb21-210"><a href="#cb21-210" aria-hidden="true" tabindex="-1"></a>viewof count <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"Valider !"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-21" data-nodetype="declaration">
 
@@ -497,9 +497,9 @@ formattage des tableaux
 esthétique tableau
 ------->
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb22" data-startfrom="217" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 216;"><span id="cb22-217"><a href="#cb22-217" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">reshape_row</span>(row) {</span>
-<span id="cb22-218"><a href="#cb22-218" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">entries</span>(row)<span class="op">.</span><span class="fu">map</span>(([column<span class="op">,</span> value]) <span class="kw">=&gt;</span> ({ column<span class="op">,</span> value }))<span class="op">;</span></span>
-<span id="cb22-219"><a href="#cb22-219" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb22" data-startfrom="215" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 214;"><span id="cb22-215"><a href="#cb22-215" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">reshape_row</span>(row) {</span>
+<span id="cb22-216"><a href="#cb22-216" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">entries</span>(row)<span class="op">.</span><span class="fu">map</span>(([column<span class="op">,</span> value]) <span class="kw">=&gt;</span> ({ column<span class="op">,</span> value }))<span class="op">;</span></span>
+<span id="cb22-217"><a href="#cb22-217" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-22" data-nodetype="declaration">
 
@@ -507,10 +507,10 @@ esthétique tableau
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb23" data-startfrom="225" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 224;"><span id="cb23-225"><a href="#cb23-225" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">color_accepted</span>(d) {</span>
-<span id="cb23-226"><a href="#cb23-226" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> backgroundColor <span class="op">=</span> d <span class="op">===</span> <span class="st">"Accepted"</span> <span class="op">?</span> <span class="st">"#5f9c5f"</span> <span class="op">:</span> <span class="st">"#fc4747"</span><span class="op">;</span></span>
-<span id="cb23-227"><a href="#cb23-227" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="background: </span><span class="sc">${</span>backgroundColor<span class="sc">}</span><span class="vs">;text-align:right;padding:2px 5px;"&gt;</span><span class="sc">${</span>d<span class="sc">}</span><span class="vs">&lt;/div&gt;`</span><span class="op">;</span></span>
-<span id="cb23-228"><a href="#cb23-228" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb23" data-startfrom="221" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 220;"><span id="cb23-221"><a href="#cb23-221" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">color_accepted</span>(d) {</span>
+<span id="cb23-222"><a href="#cb23-222" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> backgroundColor <span class="op">=</span> d <span class="op">===</span> <span class="st">"Accepted"</span> <span class="op">?</span> <span class="st">"#5f9c5f"</span> <span class="op">:</span> <span class="st">"#fc4747"</span><span class="op">;</span></span>
+<span id="cb23-223"><a href="#cb23-223" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="background: </span><span class="sc">${</span>backgroundColor<span class="sc">}</span><span class="vs">;text-align:right;padding:2px 5px;"&gt;</span><span class="sc">${</span>d<span class="sc">}</span><span class="vs">&lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb23-224"><a href="#cb23-224" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-23" data-nodetype="declaration">
 
@@ -518,30 +518,30 @@ esthétique tableau
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb24" data-startfrom="238" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 237;"><span id="cb24-238"><a href="#cb24-238" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">create_color_mapping</span>(array_left<span class="op">,</span> array_right) {</span>
-<span id="cb24-239"><a href="#cb24-239" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> mapping <span class="op">=</span> {}<span class="op">;</span></span>
-<span id="cb24-240"><a href="#cb24-240" aria-hidden="true" tabindex="-1"></a>  array_left<span class="op">.</span><span class="fu">forEach</span>((obj1<span class="op">,</span> index) <span class="kw">=&gt;</span> {</span>
-<span id="cb24-241"><a href="#cb24-241" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> obj2 <span class="op">=</span> array_right[index]<span class="op">;</span></span>
-<span id="cb24-242"><a href="#cb24-242" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> key <span class="op">=</span> obj1<span class="op">.</span><span class="at">value</span><span class="op">;</span> <span class="co">// Use obj1.value as the key</span></span>
-<span id="cb24-243"><a href="#cb24-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-244"><a href="#cb24-244" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (obj1<span class="op">.</span><span class="at">value</span> <span class="op">===</span> obj2<span class="op">.</span><span class="at">value</span>) {</span>
-<span id="cb24-245"><a href="#cb24-245" aria-hidden="true" tabindex="-1"></a>      mapping[key] <span class="op">=</span> <span class="st">"#5f9c5f"</span><span class="op">;</span></span>
-<span id="cb24-246"><a href="#cb24-246" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb24-247"><a href="#cb24-247" aria-hidden="true" tabindex="-1"></a>      mapping[key] <span class="op">=</span> <span class="st">"#fc4747"</span><span class="op">;</span></span>
-<span id="cb24-248"><a href="#cb24-248" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb24-249"><a href="#cb24-249" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb24-250"><a href="#cb24-250" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> mapping</span>
-<span id="cb24-251"><a href="#cb24-251" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb24-252"><a href="#cb24-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-253"><a href="#cb24-253" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">create_color_map</span>(key<span class="op">,</span> array) {</span>
-<span id="cb24-254"><a href="#cb24-254" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> value <span class="op">=</span> array[key]<span class="op">;</span></span>
-<span id="cb24-255"><a href="#cb24-255" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> backgroundColor <span class="op">=</span> value <span class="op">;</span></span>
-<span id="cb24-256"><a href="#cb24-256" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="background: </span><span class="sc">${</span>backgroundColor<span class="sc">}</span><span class="vs">;text-align:right;padding:2px 5px;"&gt;</span><span class="sc">${</span>key<span class="sc">}</span><span class="vs">&lt;/div&gt;`</span><span class="op">;</span></span>
-<span id="cb24-257"><a href="#cb24-257" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb24-258"><a href="#cb24-258" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">create_variable_row</span>(d){</span>
-<span id="cb24-259"><a href="#cb24-259" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> d_nice <span class="op">=</span> d<span class="op">.</span><span class="fu">replace</span>(<span class="st">"_query"</span><span class="op">,</span> <span class="st">""</span>)<span class="op">.</span><span class="fu">capitalize</span>()<span class="op">.</span><span class="fu">replace</span>(<span class="st">"_"</span><span class="op">,</span> <span class="st">" "</span>) <span class="op">;</span></span>
-<span id="cb24-260"><a href="#cb24-260" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;b&gt;</span><span class="sc">${</span>d_nice<span class="sc">}</span><span class="vs">&lt;/b&gt;`</span><span class="op">;</span></span>
-<span id="cb24-261"><a href="#cb24-261" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb24" data-startfrom="230" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 229;"><span id="cb24-230"><a href="#cb24-230" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">create_color_mapping</span>(array_left<span class="op">,</span> array_right) {</span>
+<span id="cb24-231"><a href="#cb24-231" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> mapping <span class="op">=</span> {}<span class="op">;</span></span>
+<span id="cb24-232"><a href="#cb24-232" aria-hidden="true" tabindex="-1"></a>  array_left<span class="op">.</span><span class="fu">forEach</span>((obj1<span class="op">,</span> index) <span class="kw">=&gt;</span> {</span>
+<span id="cb24-233"><a href="#cb24-233" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> obj2 <span class="op">=</span> array_right[index]<span class="op">;</span></span>
+<span id="cb24-234"><a href="#cb24-234" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> key <span class="op">=</span> obj1<span class="op">.</span><span class="at">value</span><span class="op">;</span> <span class="co">// Use obj1.value as the key</span></span>
+<span id="cb24-235"><a href="#cb24-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-236"><a href="#cb24-236" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (obj1<span class="op">.</span><span class="at">value</span> <span class="op">===</span> obj2<span class="op">.</span><span class="at">value</span>) {</span>
+<span id="cb24-237"><a href="#cb24-237" aria-hidden="true" tabindex="-1"></a>      mapping[key] <span class="op">=</span> <span class="st">"#5f9c5f"</span><span class="op">;</span></span>
+<span id="cb24-238"><a href="#cb24-238" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb24-239"><a href="#cb24-239" aria-hidden="true" tabindex="-1"></a>      mapping[key] <span class="op">=</span> <span class="st">"#fc4747"</span><span class="op">;</span></span>
+<span id="cb24-240"><a href="#cb24-240" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb24-241"><a href="#cb24-241" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb24-242"><a href="#cb24-242" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> mapping</span>
+<span id="cb24-243"><a href="#cb24-243" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-244"><a href="#cb24-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-245"><a href="#cb24-245" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">create_color_map</span>(key<span class="op">,</span> array) {</span>
+<span id="cb24-246"><a href="#cb24-246" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> value <span class="op">=</span> array[key]<span class="op">;</span></span>
+<span id="cb24-247"><a href="#cb24-247" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> backgroundColor <span class="op">=</span> value <span class="op">;</span></span>
+<span id="cb24-248"><a href="#cb24-248" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;div style="background: </span><span class="sc">${</span>backgroundColor<span class="sc">}</span><span class="vs">;text-align:right;padding:2px 5px;"&gt;</span><span class="sc">${</span>key<span class="sc">}</span><span class="vs">&lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb24-249"><a href="#cb24-249" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-250"><a href="#cb24-250" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">create_variable_row</span>(d){</span>
+<span id="cb24-251"><a href="#cb24-251" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> d_nice <span class="op">=</span> d<span class="op">.</span><span class="fu">replace</span>(<span class="st">"_query"</span><span class="op">,</span> <span class="st">""</span>)<span class="op">.</span><span class="fu">capitalize</span>()<span class="op">.</span><span class="fu">replace</span>(<span class="st">"_"</span><span class="op">,</span> <span class="st">" "</span>) <span class="op">;</span></span>
+<span id="cb24-252"><a href="#cb24-252" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;b&gt;</span><span class="sc">${</span>d_nice<span class="sc">}</span><span class="vs">&lt;/b&gt;`</span><span class="op">;</span></span>
+<span id="cb24-253"><a href="#cb24-253" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-24-1" data-nodetype="declaration">
@@ -565,20 +565,20 @@ esthétique tableau
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb25" data-startfrom="251" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 250;"><span id="cb25-251"><a href="#cb25-251" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">table_pairs</span>(array<span class="op">,</span> color_scale<span class="op">,</span> header<span class="op">,</span> columns) {</span>
-<span id="cb25-252"><a href="#cb25-252" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> tt <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">table</span>(</span>
-<span id="cb25-253"><a href="#cb25-253" aria-hidden="true" tabindex="-1"></a>  array<span class="op">,</span></span>
-<span id="cb25-254"><a href="#cb25-254" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb25-255"><a href="#cb25-255" aria-hidden="true" tabindex="-1"></a>    <span class="dt">format</span><span class="op">:</span> {</span>
-<span id="cb25-256"><a href="#cb25-256" aria-hidden="true" tabindex="-1"></a>      <span class="st">"value"</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="fu">create_color_map</span>(d<span class="op">,</span> color_scale)<span class="op">,</span></span>
-<span id="cb25-257"><a href="#cb25-257" aria-hidden="true" tabindex="-1"></a>      <span class="st">"column"</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="fu">create_variable_row</span>(d)</span>
-<span id="cb25-258"><a href="#cb25-258" aria-hidden="true" tabindex="-1"></a>      }<span class="op">,</span></span>
-<span id="cb25-259"><a href="#cb25-259" aria-hidden="true" tabindex="-1"></a>    <span class="dt">header</span><span class="op">:</span> header<span class="op">,</span></span>
-<span id="cb25-260"><a href="#cb25-260" aria-hidden="true" tabindex="-1"></a>    <span class="dt">columns</span><span class="op">:</span> columns</span>
-<span id="cb25-261"><a href="#cb25-261" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb25-262"><a href="#cb25-262" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">;</span></span>
-<span id="cb25-263"><a href="#cb25-263" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> tt</span>
-<span id="cb25-264"><a href="#cb25-264" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb25" data-startfrom="241" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 240;"><span id="cb25-241"><a href="#cb25-241" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">table_pairs</span>(array<span class="op">,</span> color_scale<span class="op">,</span> header<span class="op">,</span> columns) {</span>
+<span id="cb25-242"><a href="#cb25-242" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> tt <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">table</span>(</span>
+<span id="cb25-243"><a href="#cb25-243" aria-hidden="true" tabindex="-1"></a>  array<span class="op">,</span></span>
+<span id="cb25-244"><a href="#cb25-244" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb25-245"><a href="#cb25-245" aria-hidden="true" tabindex="-1"></a>    <span class="dt">format</span><span class="op">:</span> {</span>
+<span id="cb25-246"><a href="#cb25-246" aria-hidden="true" tabindex="-1"></a>      <span class="st">"value"</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="fu">create_color_map</span>(d<span class="op">,</span> color_scale)<span class="op">,</span></span>
+<span id="cb25-247"><a href="#cb25-247" aria-hidden="true" tabindex="-1"></a>      <span class="st">"column"</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="fu">create_variable_row</span>(d)</span>
+<span id="cb25-248"><a href="#cb25-248" aria-hidden="true" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb25-249"><a href="#cb25-249" aria-hidden="true" tabindex="-1"></a>    <span class="dt">header</span><span class="op">:</span> header<span class="op">,</span></span>
+<span id="cb25-250"><a href="#cb25-250" aria-hidden="true" tabindex="-1"></a>    <span class="dt">columns</span><span class="op">:</span> columns</span>
+<span id="cb25-251"><a href="#cb25-251" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb25-252"><a href="#cb25-252" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">;</span></span>
+<span id="cb25-253"><a href="#cb25-253" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> tt</span>
+<span id="cb25-254"><a href="#cb25-254" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-25" data-nodetype="declaration">
 
@@ -589,12 +589,12 @@ esthétique tableau
 capitalization
 --------->
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb26" data-startfrom="269" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 268;"><span id="cb26-269"><a href="#cb26-269" aria-hidden="true" tabindex="-1"></a><span class="bu">Object</span><span class="op">.</span><span class="fu">defineProperty</span>(<span class="bu">String</span><span class="op">.</span><span class="at">prototype</span><span class="op">,</span> <span class="st">'capitalize'</span><span class="op">,</span> {</span>
-<span id="cb26-270"><a href="#cb26-270" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="kw">function</span>() {</span>
-<span id="cb26-271"><a href="#cb26-271" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="fu">charAt</span>(<span class="dv">0</span>)<span class="op">.</span><span class="fu">toUpperCase</span>() <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">slice</span>(<span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb26-272"><a href="#cb26-272" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb26-273"><a href="#cb26-273" aria-hidden="true" tabindex="-1"></a>  <span class="dt">enumerable</span><span class="op">:</span> <span class="kw">false</span></span>
-<span id="cb26-274"><a href="#cb26-274" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb26" data-startfrom="256" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 255;"><span id="cb26-256"><a href="#cb26-256" aria-hidden="true" tabindex="-1"></a><span class="bu">Object</span><span class="op">.</span><span class="fu">defineProperty</span>(<span class="bu">String</span><span class="op">.</span><span class="at">prototype</span><span class="op">,</span> <span class="st">'capitalize'</span><span class="op">,</span> {</span>
+<span id="cb26-257"><a href="#cb26-257" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="kw">function</span>() {</span>
+<span id="cb26-258"><a href="#cb26-258" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="fu">charAt</span>(<span class="dv">0</span>)<span class="op">.</span><span class="fu">toUpperCase</span>() <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">slice</span>(<span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb26-259"><a href="#cb26-259" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb26-260"><a href="#cb26-260" aria-hidden="true" tabindex="-1"></a>  <span class="dt">enumerable</span><span class="op">:</span> <span class="kw">false</span></span>
+<span id="cb26-261"><a href="#cb26-261" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden">
 <div id="ojs-cell-26" data-nodetype="expression">
 
@@ -606,8 +606,8 @@ capitalization
 double tableau
 -------------->
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb27" data-startfrom="288" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 287;"><span id="cb27-288"><a href="#cb27-288" aria-hidden="true" tabindex="-1"></a>array1 <span class="op">=</span> <span class="fu">reshape_row</span>(df_query[current_row])</span>
-<span id="cb27-289"><a href="#cb27-289" aria-hidden="true" tabindex="-1"></a>array2 <span class="op">=</span> <span class="fu">reshape_row</span>(df_match[current_row])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb27" data-startfrom="273" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 272;"><span id="cb27-273"><a href="#cb27-273" aria-hidden="true" tabindex="-1"></a>array1 <span class="op">=</span> <span class="fu">reshape_row</span>(df_query[current_row])</span>
+<span id="cb27-274"><a href="#cb27-274" aria-hidden="true" tabindex="-1"></a>array2 <span class="op">=</span> <span class="fu">reshape_row</span>(df_match[current_row])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-27-1" data-nodetype="declaration">
@@ -624,8 +624,8 @@ double tableau
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb28" data-startfrom="0" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line -1;"><span id="cb28-0"><a href="#cb28-0" aria-hidden="true" tabindex="-1"></a>colors_data1 <span class="op">=</span> <span class="fu">create_color_mapping</span>(array1<span class="op">,</span> array2)</span>
-<span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>colors_data2 <span class="op">=</span> <span class="fu">create_color_mapping</span>(array2<span class="op">,</span> array1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb28" data-startfrom="292" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 291;"><span id="cb28-292"><a href="#cb28-292" aria-hidden="true" tabindex="-1"></a>colors_data1 <span class="op">=</span> <span class="fu">create_color_mapping</span>(array1<span class="op">,</span> array2)</span>
+<span id="cb28-293"><a href="#cb28-293" aria-hidden="true" tabindex="-1"></a>colors_data2 <span class="op">=</span> <span class="fu">create_color_mapping</span>(array2<span class="op">,</span> array1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-28-1" data-nodetype="declaration">
