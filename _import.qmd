@@ -1,0 +1,14 @@
+
+<!----
+csv import
+---->
+
+```{ojs}
+viewof csvfile = Inputs.file({label: md`__Fichier à annoter__ 📁 ([Exemple ici](https://raw.githubusercontent.com/linogaliana/serverless-annotation-tool/master/example.csv))`, accept: ".csv", required: true})
+```
+
+```{ojs}
+viewof columns_to_show = Inputs.checkbox(
+  unique_columns,
+  {label: "Colonnes à afficher", value: unique_columns, format: d => d.replace("_", " ").capitalize()})
+```

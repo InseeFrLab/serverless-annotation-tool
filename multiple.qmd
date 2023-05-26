@@ -4,4 +4,204 @@ echo: false
 image: cats.jpg
 ---
 
-A VENIR
+```{ojs}
+html`<div name="file-import">${viewof csvfile}</div>`
+```
+
+```{ojs}
+html`<div name="colonnes-print">${viewof columns_to_show}</div>`
+```
+
+
+```{ojs}
+html`<div name="file-import">${viewof csvfile}</div>`
+```
+
+```{ojs}
+html`<div name="colonnes-print">${viewof columns_to_show}</div>`
+```
+
+```{ojs}
+//| echo: false
+grid_two_dataframes = await html`<div style="
+              background: #fff;
+              margin: 0;
+              border: none ;
+              display: grid;
+              width: ${screen.width};
+              grid-template-areas: 
+                'a b c'
+                'd d d'
+                'g g g'
+                'f f f'
+                'e e e'
+                ;
+              grid-gap: 10px;
+            ">
+              <div name="a" style="grid-area: a; position: relative;">${viewof tt1}</div>
+              <div name="b" style="grid-area: b; position: relative;">${viewof tt2}</div>
+              <div name="c" style="grid-area: c; position: relative;">${viewof tt3}</div>
+              <div name="g" style="grid-area: g; position: relative;">${viewof decision}</div>
+              <div name="d" style="grid-area: d; position: relative;">${viewof count}</div>
+              <div name="f" style="grid-area: f; position: relative;">${viewof text_input}</div>
+              <div name="e" style="grid-area: e; position: relative;">${viewof count}</div>
+            </div>`
+```
+
+<!-----
+widget decision
+------->
+
+```{ojs}
+viewof text_input = (count,
+  Inputs.text(
+    {label: html`<b>Raison de la décision</b>`,
+    //disabled: decision == null,
+    placeholder: "Un texte explicatif"})
+)
+```
+
+```{ojs}
+decision_label = [
+  {text: "Accepter n°1 👍️", color: "green", decision: "Accepted 1"},
+  {text: "Accepter n°2 👍️", color: "green", decision: "Accepted 2"},
+  {text: "Rejeter les deux 👎️", color: "red", decision: "Rejected"},
+  null
+]
+```
+
+```{ojs}
+viewof decision = (count, Inputs.radio(
+  decision_label,
+  {label: "Décision",
+   format: x => (x == null) ? html`<span style="border-bottom: solid 2px blue; margin-bottom: -2px;">Décision à prendre 🤔` : html`<span style="text-transform: capitalize; border-bottom: solid 2px ${x.color}; margin-bottom: -2px;">${x.text}`,
+   value: null
+  }
+))
+```
+
+
+```{ojs}
+viewof count = Inputs.button("Valider !")
+```
+
+
+```{ojs}
+message_share = {
+  if (share < 10){
+    return md`Vous avez annoté ${share}% des paires du fichier d'entrée`
+  } else {
+    return md`Bravo vous avez annoté ${share}% des paires du fichier d'entrée`
+  }
+}
+```
+
+```{ojs}
+progress = {
+  const width = 360;
+  const height = 20;
+  const context = DOM.context2d(width, height);
+  context.canvas.style.border = "solid 1px black";
+  const i = width*(share/100);
+  context.clearRect(0, 0, width, height);
+  context.fillStyle = 'green'
+  context.fillRect(0, 0, i, height);
+  yield context.canvas;
+}
+```
+
+
+<!--------
+formattage des tableaux
+---------->
+
+{{< include _widgets.qmd >}}
+
+<!-----
+tableau initial
+------>
+
+```{ojs}
+array1 = reshape_row(df_query[current_row])
+array2 = reshape_row(df_match1[current_row])
+array3 = reshape_row(df_match2[current_row])
+```
+
+```{ojs}
+colors_data1 = create_color_mapping(array1, array2)
+colors_data2 = create_color_mapping(array2, array1)
+colors_data3 = create_color_mapping(array3, array1)
+```
+
+
+```{ojs}
+viewof tt1 = table_pairs(
+  array1, colors_data1, 
+  {"value": "Valeur observée", "column": "Variable d'intérêt"},
+  ["column", "value"]
+)
+```
+
+```{ojs}
+viewof tt2 = table_pairs(
+  array2, colors_data2, 
+   {"value": "Paire potentielle n°1"},
+   ["value"]
+)
+```
+
+```{ojs}
+viewof tt3 = table_pairs(
+  array3, colors_data3, 
+   {"value": "Paire potentielle n°2"},
+   ["value"]
+)
+```
+
+
+<!-----
+data
+------>
+
+```{ojs}
+db = DuckDBClient.of({
+  match : await csvfile.csv()
+})
+```
+
+```{ojs}
+table_names = db.sql`SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'match'`
+column_names = table_names.flatMap(item => item.column_name)
+```
+
+```{ojs}
+df = db.sql`SELECT * FROM match`
+df_query = db.query(
+  `SELECT ${columns_to_show.map(l => l + "_query").join(', ')} FROM match`
+)
+df_match1 = db.query(
+  `SELECT ${columns_to_show.map(l => l + "_match1").join(', ')} FROM match`
+)
+df_match2 = db.query(
+  `SELECT ${columns_to_show.map(l => l + "_match2").join(', ')} FROM match`
+)
+n_rows_sql = db.sql`SELECT COUNT(*) AS COUNT FROM match`
+```
+
+```{ojs}
+n_rows = n_rows_sql[0]['COUNT']
+max_count = Math.min(Number(n_rows),count)
+current_row = Math.min(Number(n_rows)-1,count)
+```
+
+```{ojs}
+unique_columns_dup = column_names.map(columnName => columnName.replace("_query", "").replace("_match1", "").replace("_match2", ""));
+unique_columns = Array.from(new Set(unique_columns_dup))
+```
+
+
+<!----
+widgets import
+-------->
+
+{{< include _import.qmd >}}

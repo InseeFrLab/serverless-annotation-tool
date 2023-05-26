@@ -1,0 +1,75 @@
+<!------
+esthétique tableau
+------->
+
+```{ojs}
+function reshape_row(row) {
+  return Object.entries(row).map(([column, value]) => ({ column, value }));
+}
+```
+
+```{ojs}
+function color_accepted(d) {
+  const backgroundColor = d === "Accepted" ? "#5f9c5f" : "#fc4747";
+  return html`<div style="background: ${backgroundColor};text-align:right;padding:2px 5px;">${d}</div>`;
+}
+```
+
+```{ojs}
+function create_color_mapping(array_left, array_right) {
+  const mapping = {};
+  array_left.forEach((obj1, index) => {
+    const obj2 = array_right[index];
+    const key = obj1.value; // Use obj1.value as the key
+
+    if (obj1.value === obj2.value) {
+      mapping[key] = "#5f9c5f";
+    } else {
+      mapping[key] = "#fc4747";
+    }
+  });
+  return mapping
+}
+
+function create_color_map(key, array) {
+  const value = array[key];
+  const backgroundColor = value ;
+  return html`<div style="background: ${backgroundColor};text-align:right;padding:2px 5px;">${key}</div>`;
+}
+function create_variable_row(d){
+  const d_nice = d.replace("_query", "").capitalize().replace("_", " ") ;
+  return html`<b>${d_nice}</b>`;
+}
+```
+
+
+```{ojs}
+function table_pairs(array, color_scale, header, columns) {
+  const tt = Inputs.table(
+  array,
+    {
+    format: {
+      "value": d => create_color_map(d, colors_data1),
+      "column": d => create_variable_row(d)
+      },
+    header: header,
+    columns: columns
+    }
+  ) ;
+  return tt
+}
+```
+
+<!-----
+capitalization
+--------->
+
+```{ojs}
+//| output: false
+Object.defineProperty(String.prototype, 'capitalize', {
+  value: function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+  },
+  enumerable: false
+});
+```
