@@ -86,31 +86,6 @@ viewof count = Inputs.button("Valider !")
 ```
 
 
-```{ojs}
-message_share = {
-  if (share < 10){
-    return md`Vous avez annoté ${share}% des paires du fichier d'entrée`
-  } else {
-    return md`Bravo vous avez annoté ${share}% des paires du fichier d'entrée`
-  }
-}
-```
-
-```{ojs}
-progress = {
-  const width = 360;
-  const height = 20;
-  const context = DOM.context2d(width, height);
-  context.canvas.style.border = "solid 1px black";
-  const i = width*(share/100);
-  context.clearRect(0, 0, width, height);
-  context.fillStyle = 'green'
-  context.fillRect(0, 0, i, height);
-  yield context.canvas;
-}
-```
-
-
 <!--------
 formattage des tableaux
 ---------->
@@ -198,6 +173,15 @@ current_row = Math.min(Number(n_rows)-1,count)
 unique_columns_dup = column_names.map(columnName => columnName.replace("_query", "").replace("_match1", "").replace("_match2", ""));
 unique_columns = Array.from(new Set(unique_columns_dup))
 ```
+
+<!----
+barre de progrès et message
+-------->
+
+```{ojs}
+share = Math.round(100*max_count/Number(n_rows))
+```
+
 
 
 <!----
