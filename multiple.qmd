@@ -268,9 +268,6 @@ dataframe final
 
 ```{ojs}
 viewof final_table = Inputs.table(
-  x,
-  {format: {
-      "similarity": d => color_accepted(d)
-  }
+  x
   })
 ```

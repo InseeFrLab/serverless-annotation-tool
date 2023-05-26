@@ -2,6 +2,8 @@
 title: "A propos"
 ---
 
-Prototype d'interface statique pour annoter des paires d'appariement.
+Prototype d'interface statique pour annoter des appariements.
 
-Lino Galiana, code source sur [Github](https://github.com/linogaliana/serverless-annotation-tool)
+Auteur: [Lino Galiana](https://github.com/linogaliana/)
+
+Code source sur [Github](https://github.com/linogaliana/serverless-annotation-tool)
