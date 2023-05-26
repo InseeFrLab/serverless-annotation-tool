@@ -2,4 +2,6 @@
 title: "A propos"
 ---
 
-Prototype de site réactif pour annoter des paires d'appariement
+Prototype d'interface statique pour annoter des paires d'appariement.
+
+Lino Galiana, code source sur [Github](https://github.com/linogaliana/serverless-annotation-tool)
