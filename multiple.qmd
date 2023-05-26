@@ -1,6 +1,6 @@
 ---
 title: "Choix entre plusieurs algorithmes"
-echo: true
+echo: false
 image: cats.jpg
 ---
 
