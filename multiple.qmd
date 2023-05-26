@@ -95,7 +95,7 @@ array3 = reshape_row(df_match2[current_row])
 ```
 
 ```{ojs}
-colors_data1 = create_color_mapping(array1, array2)
+colors_data1 = create_color_mapping(array1, array1)
 colors_data2 = create_color_mapping(array2, array1)
 colors_data3 = create_color_mapping(array3, array1)
 ```
