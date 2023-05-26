@@ -5,21 +5,13 @@ image: cats.jpg
 ---
 
 ```{ojs}
-html`<div name="file-import">${viewof csvfile}</div>`
+html`<div name="file-import">${viewof csvfile2}</div>`
 ```
 
 ```{ojs}
 html`<div name="colonnes-print">${viewof columns_to_show}</div>`
 ```
 
-
-```{ojs}
-html`<div name="file-import">${viewof csvfile}</div>`
-```
-
-```{ojs}
-html`<div name="colonnes-print">${viewof columns_to_show}</div>`
-```
 
 ```{ojs}
 //| echo: false
@@ -211,9 +203,13 @@ share = Math.round(100*max_count/Number(n_rows))
 
 
 
-<!----
+<!-----------------
 widgets import
--------->
+----------------->
+
+```{ojs}
+viewof csvfile2 = Inputs.file({label: md`__Fichier à annoter__ 📁 ([Exemple ici](https://raw.githubusercontent.com/linogaliana/serverless-annotation-tool/master/example2.csv))`, accept: ".csv", required: true})
+```
 
 {{< include _import.qmd >}}
 
