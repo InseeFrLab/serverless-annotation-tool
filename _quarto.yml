@@ -6,7 +6,11 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: "Page principale"
+        text: "Home"
+      - href: pairs.qmd
+        text: "Annotation paires"
+      - href: multiple.qmd
+        text: "Choix entre plusieurs appariements"
       - about.qmd
 
 format:

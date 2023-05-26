@@ -1,0 +1,7 @@
+---
+title: "Choix entre plusieurs algorithmes"
+echo: false
+image: cats.jpg
+---
+
+A VENIR
