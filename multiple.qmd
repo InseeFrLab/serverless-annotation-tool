@@ -1,6 +1,6 @@
 ---
 title: "Choix entre plusieurs algorithmes"
-echo: false
+echo: true
 image: cats.jpg
 ---
 
@@ -159,7 +159,7 @@ data
 
 ```{ojs}
 db = DuckDBClient.of({
-  match : await csvfile.csv()
+  match : await csvfile2.csv()
 })
 ```
 

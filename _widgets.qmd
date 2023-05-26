@@ -49,7 +49,7 @@ function table_pairs(array, color_scale, header, columns) {
   array,
     {
     format: {
-      "value": d => create_color_map(d, colors_data1),
+      "value": d => create_color_map(d, color_scale),
       "column": d => create_variable_row(d)
       },
     header: header,
