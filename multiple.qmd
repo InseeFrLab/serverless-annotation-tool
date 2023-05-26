@@ -134,6 +134,33 @@ viewof tt3 = table_pairs(
 ```
 
 
+<!----
+export des annotations
+-------->
+
+```{ojs}
+viewof filename_input = Inputs.text(
+    {
+      label: html`<b>Nom du fichier pour l'export</b>📁`,
+      placeholder: "annotations.json",
+      value: "annotations.json"  
+      }
+)
+```
+
+```{ojs}
+function serialize (data) {
+ let s = JSON.stringify(data);
+ return new Blob([s], {type: "application/json"}) 
+}
+```
+
+```{ojs}
+//| echo: false
+viewof download = DOM.download(serialize(x), filename_input.replace(".json", ""), "Sauvegarder les annotations 👇 dans un fichier")
+```
+
+
 <!-----
 data
 ------>
@@ -189,3 +216,65 @@ widgets import
 -------->
 
 {{< include _import.qmd >}}
+
+<!--------------------
+update du fichier annotation
+---------------------->
+
+```{ojs}
+d = [];
+function push_mutable(d){
+  if (decision !== null) {
+    if (d.some(element => element.count === current_row)){
+      const index_replace = d.findIndex(element => element.count === current_row);
+      d[index_replace] = d_row ;
+    } else{
+      d.push(d_row);
+    }
+    }
+  return d ;
+}
+x = push_mutable(d)
+```
+
+
+```{ojs}
+d_row = {
+  // Assuming `count` and `data_pairs` are already defined
+  const newElement = { ...df[current_row] }; // Create a shallow copy of the original element
+
+  if (decision !== null) {
+    newElement.similarity = decision.decision; // Update the "field" property with the value of `decision.decision`
+    newElement.justification = "no decision yet" ;
+    newElement.count = current_row ;
+  } else {
+    newElement.count = current_row ;
+    newElement.similarity = "no decision yet"; // Set the "field" property to "nothing" if `decision.decision` is null
+    //newElement.justification = text_input ;
+  }
+
+  return newElement;
+}
+```
+
+```{ojs}
+//| output: false
+{
+  if (x[current_row]) {
+    x[current_row].justification = text_input ;
+  }
+}
+```
+
+<!-----------
+dataframe final
+-------------->
+
+```{ojs}
+viewof final_table = Inputs.table(
+  x,
+  {format: {
+      "similarity": d => color_accepted(d)
+  }
+  })
+```
