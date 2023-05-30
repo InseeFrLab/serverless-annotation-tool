@@ -1,4 +1,4 @@
-image: gitlab-registry.insee.fr/kubernetes/images/build/r-toolbox/onyxia-rstudio-insee:r4.2.1
+image: gitlab-registry.insee.fr/kubernetes/images/build/r-toolbox/onyxia-rstudio-insee:r4.3.1
 
 stages:
   - deploy
