@@ -3,19 +3,14 @@ image: gitlab-registry.insee.fr/kubernetes/images/build/r-toolbox/onyxia-rstudio
 stages:
   - deploy
 
-variables:
-  PKG_NAME: "sine"
-
-
 pages:
   stage: deploy
   tags:
     - docker
   script:
-    - Rscript -e 'install.packages("quarto") ; quarto::quarto_render'
+    - Rscript -e 'install.packages("quarto") ; quarto::quarto_render()'
   artifacts:
     paths:
       - public
-  when: manual # pour declencher manuellement le job quand version stable
   only:
     - master
