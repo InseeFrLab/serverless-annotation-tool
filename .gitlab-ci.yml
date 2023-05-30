@@ -9,6 +9,7 @@ pages:
     - docker
   script:
     - Rscript -e 'install.packages("quarto") ; quarto::quarto_render()'
+    - mv _site/* public/
   artifacts:
     paths:
       - public
