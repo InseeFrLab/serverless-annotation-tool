@@ -8,6 +8,7 @@ pages:
   tags:
     - docker
   script:
+    - quarto --version
     - quarto render
     - mkdir -p public
     - mv _site/* public/
