@@ -1,9 +1,60 @@
 ---
 title: "A propos"
+echo: false
 ---
+
 
 Prototype d'interface statique pour annoter des appariements.
 
 Auteur: [Lino Galiana](https://github.com/linogaliana/)
 
 Code source sur [Github](https://github.com/linogaliana/serverless-annotation-tool)
+
+## Structure des données
+
+L'objectif est que cet outil soit flexible, il comporte donc un nombre de contraintes
+minimales à son utilisateur. Celles-ci sont principalement les suivantes:
+
+- Le fichier doit être au format `csv` avec des séparateurs `,` ;
+- Les colonnes permettant de comparer les paires sont identifiées par
+des suffixes. Elles peuvent être plus nombreuses que dans
+les exemples sur la page, il n'y a pas de contrainte sur le nombre de 
+colonnes à comparer (tant qu'il y en a au moins une).
+
+```{ojs}
+db = DuckDBClient.of({
+  example: FileAttachment("example.csv"),
+  example2: FileAttachment("example2.csv")
+})
+```
+
+### 1. Comparaison des paires
+
+Pour la page de [comparaison des paires](/pairs.html), le suffixe
+attendu pour dissocier les paires est `_query` (pour la paire servant
+de _benchmark_) ou `_match` (pour la paire candidate).
+
+Voici un exemple de données respectant cette contrainte:
+
+```{ojs}
+Inputs.table(
+    db.sql`SELECT * FROM example`
+)
+```
+
+
+## Choix entre plusieurs algorithmes
+
+Pour la page de [comparaison des algorithmes](/multiple.html), le suffixe
+attendu pour dissocier les paires est `_query` (pour la paire servant
+de _benchmark_), `_match1` (pour la première paire candidate)
+ou `_match2` (pour la deuxième paire candidate).
+
+Voici un exemple de données respectant cette contrainte:
+
+
+```{ojs}
+Inputs.table(
+    db.sql`SELECT * FROM example2`
+)
+```
