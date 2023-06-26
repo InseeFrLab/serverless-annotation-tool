@@ -1,0 +1,19 @@
+image: gitlab-registry.insee.fr/datascience/registry-qf/onyxia-rstudio:r4.2.3
+
+stages:
+  - deploy
+
+pages:
+  stage: deploy
+  tags:
+    - docker
+  script:
+    - quarto --version
+    - quarto render
+    - mkdir -p public
+    - mv _site/* public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
