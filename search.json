@@ -11,14 +11,7 @@
     "href": "about.html#structure-des-données",
     "title": "A propos",
     "section": "Structure des données",
-    "text": "Structure des données\nL’objectif est que cet outil soit flexible, il comporte donc un nombre de contraintes minimales à son utilisateur. Celles-ci sont principalement les suivantes:\n\nLe fichier doit être au format csv avec des séparateurs , ;\nLes colonnes permettant de comparer les paires sont identifiées par des suffixes. Elles peuvent être plus nombreuses que dans les exemples sur la page, il n’y a pas de contrainte sur le nombre de colonnes à comparer (tant qu’il y en a au moins une).\n\n\ndb = DuckDBClient.of({\n  example: FileAttachment(\"example.csv\"),\n  example2: FileAttachment(\"example2.csv\")\n})\n\n\n\n\n\n\n\n1. Comparaison des paires\nPour la page de comparaison des paires, le suffixe attendu pour dissocier les paires est _query (pour la paire servant de benchmark) ou _match (pour la paire candidate).\nVoici un exemple de données respectant cette contrainte:\n\nInputs.table(\n    db.sql`SELECT * FROM example`\n)"
-  },
-  {
-    "objectID": "about.html#choix-entre-plusieurs-algorithmes",
-    "href": "about.html#choix-entre-plusieurs-algorithmes",
-    "title": "A propos",
-    "section": "Choix entre plusieurs algorithmes",
-    "text": "Choix entre plusieurs algorithmes\nPour la page de comparaison des algorithmes, le suffixe attendu pour dissocier les paires est _query (pour la paire servant de benchmark), _match1 (pour la première paire candidate) ou _match2 (pour la deuxième paire candidate).\nVoici un exemple de données respectant cette contrainte:\n\nInputs.table(\n    db.sql`SELECT * FROM example2`\n)"
+    "text": "Structure des données\nL’objectif est que cet outil soit flexible, il comporte donc un nombre de contraintes minimales à son utilisateur. Celles-ci sont principalement les suivantes:\n\nLe fichier doit être au format csv avec des séparateurs , ;\nLes colonnes permettant de comparer les paires sont identifiées par des suffixes. Elles peuvent être plus nombreuses que dans les exemples sur la page, il n’y a pas de contrainte sur le nombre de colonnes à comparer (tant qu’il y en a au moins une).\n\n\ndb = DuckDBClient.of({\n  example: FileAttachment(\"example.csv\"),\n  example2: FileAttachment(\"example2.csv\")\n})\n\n\n\n\n\n\n\n1. Comparaison des paires\nPour la page de comparaison des paires, le suffixe attendu pour dissocier les paires est _query (pour la paire servant de benchmark) ou _match (pour la paire candidate).\nVoici un exemple de données respectant cette contrainte:\n\nInputs.table(\n    db.sql`SELECT * FROM example`\n)\n\n\n\n\n\n\n\n\n2. Choix entre plusieurs algorithmes\nPour la page de comparaison des algorithmes, le suffixe attendu pour dissocier les paires est _query (pour la paire servant de benchmark), _match1 (pour la première paire candidate) ou _match2 (pour la deuxième paire candidate).\nVoici un exemple de données respectant cette contrainte:\n\nInputs.table(\n    db.sql`SELECT * FROM example2`\n)"
   },
   {
     "objectID": "multiple.html",
