@@ -43,7 +43,7 @@ Inputs.table(
 ```
 
 
-## Choix entre plusieurs algorithmes
+### 2. Choix entre plusieurs algorithmes
 
 Pour la page de [comparaison des algorithmes](/multiple.html), le suffixe
 attendu pour dissocier les paires est `_query` (pour la paire servant
