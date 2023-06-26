@@ -4,6 +4,27 @@ echo: false
 image: spiderman.jpg
 ---
 
+```{ojs}
+d3 = require(await FileAttachment('/js/d3.min.js').url())
+```
+
+```{ojs}
+inputs = require(await FileAttachment('/js/inputs.min.js').url())
+```
+
+```{ojs}
+marked = require(await FileAttachment('/js/marked.min.js').url())
+```
+
+```{ojs}
+htl = require(await FileAttachment('/js/htl.min.js').url())
+```
+
+```{ojs}
+duckdb = require(await FileAttachment('/js/duckdb.js').url())
+```
+
+
 
 ```{ojs}
 html`<div name="file-import">${viewof csvfile}</div>`
