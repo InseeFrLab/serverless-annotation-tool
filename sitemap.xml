@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://github.com/linogaliana/serverless-annotation-tool/about.html</loc>
+    <lastmod>2023-06-26T13:42:51.982Z</lastmod>
+  </url>
+  <url>
     <loc>https://github.com/linogaliana/serverless-annotation-tool/multiple.html</loc>
-    <lastmod>2023-05-26T16:01:12.172Z</lastmod>
+    <lastmod>2023-06-26T13:42:50.478Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/linogaliana/serverless-annotation-tool/index.html</loc>
-    <lastmod>2023-05-26T16:01:13.016Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/linogaliana/serverless-annotation-tool/about.html</loc>
-    <lastmod>2023-05-26T16:01:13.332Z</lastmod>
+    <lastmod>2023-06-26T13:42:49.214Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/linogaliana/serverless-annotation-tool/pairs.html</loc>
-    <lastmod>2023-05-26T16:01:14.368Z</lastmod>
+    <lastmod>2023-06-26T13:42:51.378Z</lastmod>
   </url>
 </urlset>
