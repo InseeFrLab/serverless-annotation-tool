@@ -20,10 +20,6 @@ marked = require(await FileAttachment('/js/marked.min.js').url())
 htl = require(await FileAttachment('/js/htl.min.js').url())
 ```
 
-```{ojs}
-duckdb = require(await FileAttachment('/js/duckdb.js').url())
-```
-
 
 
 ```{ojs}
