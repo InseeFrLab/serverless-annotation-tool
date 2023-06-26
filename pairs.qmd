@@ -1,6 +1,6 @@
 ---
 title: "Annotation de paires"
-echo: false
+echo: true
 image: spiderman.jpg
 ---
 
