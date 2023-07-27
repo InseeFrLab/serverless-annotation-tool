@@ -64,12 +64,22 @@ progress = {
 }
 ```
 
-
-<br>
+```{ojs}
+message_final = {
+  if (share === 100){
+    return md`__Vous avez annoté l'ensemble de votre fichier 💪🎉__`
+  } else {
+    return md``
+  }
+}
+```
 
 ```{ojs}
 md`${max_count} Annotation${max_count>1 ? 's' : ''}`
 ```
+
+
+
 
 
 <!-----
@@ -233,7 +243,6 @@ barre de progrès et message
 ```{ojs}
 share = Math.round(100*max_count/Number(n_rows))
 ```
-
 
 
 <!-----------------
