@@ -57,6 +57,7 @@ viewof text_input = (count,
 decision_label = [
   {text: "Accepter n°1 👍️", color: "green", decision: "Accepted 1"},
   {text: "Accepter n°2 👍️", color: "green", decision: "Accepted 2"},
+  {text: "Accepter les deux 👍️👍️", color: "green", decision: "Both accepted"},
   {text: "Rejeter les deux 👎️", color: "red", decision: "Rejected"},
   null
 ]
