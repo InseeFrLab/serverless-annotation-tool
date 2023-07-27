@@ -40,6 +40,48 @@ grid_two_dataframes = await html`<div style="
             </div>`
 ```
 
+```{ojs}
+message_share = {
+  if (share < 10){
+    return md`Vous avez annoté ${share}% des paires du fichier d'entrée`
+  } else {
+    return md`Bravo vous avez annoté ${share}% des paires du fichier d'entrée`
+  }
+}
+```
+
+```{ojs}
+progress = {
+  const width = 360;
+  const height = 20;
+  const context = DOM.context2d(width, height);
+  context.canvas.style.border = "solid 1px black";
+  const i = width*(share/100);
+  context.clearRect(0, 0, width, height);
+  context.fillStyle = 'green'
+  context.fillRect(0, 0, i, height);
+  yield context.canvas;
+}
+```
+
+```{ojs}
+message_final = {
+  if (share === 100){
+    return md`__Vous avez annoté l'ensemble de votre fichier 💪🎉__`
+  } else {
+    return md``
+  }
+}
+```
+
+```{ojs}
+md`${max_count} Annotation${max_count>1 ? 's' : ''}`
+```
+
+
+
+
+
 <!-----
 widget decision
 ------->
@@ -57,6 +99,7 @@ viewof text_input = (count,
 decision_label = [
   {text: "Accepter n°1 👍️", color: "green", decision: "Accepted 1"},
   {text: "Accepter n°2 👍️", color: "green", decision: "Accepted 2"},
+  {text: "Accepter les deux 👍️👍️", color: "green", decision: "Both accepted"},
   {text: "Rejeter les deux 👎️", color: "red", decision: "Rejected"},
   null
 ]
@@ -200,7 +243,6 @@ barre de progrès et message
 ```{ojs}
 share = Math.round(100*max_count/Number(n_rows))
 ```
-
 
 
 <!-----------------
