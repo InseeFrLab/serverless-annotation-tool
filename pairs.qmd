@@ -5,6 +5,7 @@ image: spiderman.jpg
 ---
 
 
+
 ```{ojs}
 html`<div name="file-import">${viewof csvfile}</div>`
 ```
@@ -13,35 +14,41 @@ html`<div name="file-import">${viewof csvfile}</div>`
 html`<div name="colonnes-print">${viewof columns_to_show}</div>`
 ```
 
+
+
 ```{ojs}
 //| echo: false
-grid_two_dataframes = await html`<div style="
-              background: #fff;
-              margin: 0;
-              border: none ;
-              display: grid;
-              width: ${screen.width};
-              grid-template-areas: 
-                'a b'
-                'c c'
-                'f d'
-                'g g'
-                'h h'
-                'i i'
-                'e e'
-                ;
-              grid-gap: 10px;
-            ">
-              <div name="a" style="grid-area: a; position: relative;">${viewof tt1}</div>
-              <div name="b" style="grid-area: b; position: relative;">${viewof tt2}</div>
-              <div name="c" style="grid-area: c; position: relative;">${viewof decision}</div>
-              <div name="f" style="grid-area: f; position: relative;">${viewof text_input}</div>
-              <div name="d" style="grid-area: d; position: relative;">${viewof count}</div>
-              <div name="g" style="grid-area: g; position: relative;">${message_share}</div>
-              <div name="h" style="grid-area: h; position: relative;">${progress}</div>
-              <div name="i" style="grid-area: i; position: relative;">${message_final}</div>
-              <div name="e" style="grid-area: e; position: relative;">${viewof download}</div>
-            </div>`
+
+// Now create the grid_two_dataframes template literal
+grid_two_dataframes = await html`
+  <div style="
+    background: #fff;
+    margin: 0;
+    border: none;
+    display: grid;
+    width: ${screen.width};
+    grid-template-areas: 
+      'a b'
+      'c c'
+      'f d'
+      'g g'
+      'h h'
+      'i i'
+      'e e'
+      ;
+    grid-gap: 10px;
+  ">
+    <div name="a" style="grid-area: a; position: relative;">${viewof tt1}</div>
+    <div name="b" style="grid-area: b; position: relative;">${viewof tt2}</div>
+    <div name="c" style="grid-area: c; position: relative;">${viewof decision}</div>
+    <div name="f" style="grid-area: f; position: relative;">${viewof text_input}</div>
+    <div name="d" style="grid-area: d; position: relative;">${count_printed}</div>
+    <div name="g" style="grid-area: g; position: relative;">${message_share}</div>
+    <div name="h" style="grid-area: h; position: relative;">${progress}</div>
+    <div name="i" style="grid-area: i; position: relative;">${message_final}</div>
+    <div name="e" style="grid-area: e; position: relative;">${viewof download}</div>
+  </div>
+`;
 ```
 
 
@@ -204,7 +211,13 @@ viewof decision = (count, Inputs.radio(
 
 
 ```{ojs}
+//| output: hide
 viewof count = Inputs.button("Valider !")
+```
+
+```{ojs}
+//| output: hide
+viewof count_disabled = Inputs.button("Valider !", {disabled : true})
 ```
 
 <!--------
@@ -305,4 +318,40 @@ d_row = {
     x[current_row].justification = text_input ;
   }
 }
+```
+
+
+```{ojs}
+count_printed = {
+  // Define a variable to hold the content of the 'd' div
+  let countDivContent;
+
+  // Check if 'decision' is null or not and set the 'countDivContent' accordingly
+  if (decision === null) {
+    countDivContent = viewof count_disabled;
+  } else {
+    countDivContent = viewof count;
+  }
+  return countDivContent
+}
+```
+
+
+```{ojs}
+count_hidden = {
+  // Define a variable to hold the content of the 'd' div
+  let countDivContent;
+
+  // Check if 'decision' is null or not and set the 'countDivContent' accordingly
+  if (decision === null) {
+    countDivContent = viewof count;
+  } else {
+    countDivContent = viewof count_disabled;
+  }
+  return countDivContent
+}
+```
+
+```{ojs}
+html`<div style="display: none;">${count_hidden}</div>`
 ```
