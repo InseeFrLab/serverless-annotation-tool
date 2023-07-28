@@ -217,7 +217,7 @@ viewof count = Inputs.button("Valider !")
 
 ```{ojs}
 //| output: hide
-viewof count_disabled = Inputs.button("Valider !", {disabled : true})
+viewof count_disabled = Inputs.button("Faire un choix pour pouvoir valider !", {disabled : true})
 ```
 
 <!--------
