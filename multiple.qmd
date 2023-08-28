@@ -110,6 +110,7 @@ decision_label = [
   {text: "Accepter n°2 👍️", color: "green", decision: "Accepted 2"},
   {text: "Accepter les deux 👍️👍️", color: "green", decision: "Both accepted"},
   {text: "Rejeter les deux 👎️", color: "red", decision: "Rejected"},
+  {text: "Indécis 🤷", color: "blue", decision: "Undecided"},
   null
 ]
 ```

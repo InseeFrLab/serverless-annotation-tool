@@ -1,5 +1,5 @@
 ---
-title: "A propos"
+title: "À propos"
 echo: false
 ---
 
@@ -42,6 +42,10 @@ Inputs.table(
 )
 ```
 
+Pour aider à la comparaison des paires, un visualiseur est 
+proposé. Celui-ci colore les champs identiques en vert 🟢
+et les champs différents en rouge 🔴.
+
 
 ### 2. Choix entre plusieurs algorithmes
 
@@ -58,3 +62,9 @@ Inputs.table(
     db.sql`SELECT * FROM example2`
 )
 ```
+
+Pour aider à la comparaison des paires, un visualiseur est 
+proposé. Celui-ci colore les champs identiques
+à ceux désirés
+en vert 🟢
+et les champs différents en rouge 🔴.
