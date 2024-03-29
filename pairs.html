@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -79,7 +79,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -88,6 +94,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -104,9 +111,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Annotation appariements</span>
     </a>
@@ -118,25 +125,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./pairs.html" rel="" target="" aria-current="page">
- <span class="menu-text">Annotation paires</span></a>
+    <a class="nav-link active" href="./pairs.html" aria-current="page"> 
+<span class="menu-text">Annotation paires</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./multiple.html" rel="" target="">
- <span class="menu-text">Choix entre plusieurs appariements</span></a>
+    <a class="nav-link" href="./multiple.html"> 
+<span class="menu-text">Choix entre plusieurs appariements</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">À propos</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">À propos</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -165,7 +172,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <div class="cell">
 <div class="sourceCode cell-code hidden" id="cb1" data-startfrom="7" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 6;"><span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>d3 <span class="op">=</span> <span class="pp">require</span>(<span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">'/js/d3.min.js'</span>)<span class="op">.</span><span class="fu">url</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -549,7 +558,6 @@ widget decision
 </div>
 </div>
 </div>
-
 <!--------
 formattage des tableaux
 ---------->
@@ -634,11 +642,12 @@ esthétique tableau
 <span id="cb31-288"><a href="#cb31-288" aria-hidden="true" tabindex="-1"></a>      <span class="st">"column"</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="fu">create_variable_row</span>(d)</span>
 <span id="cb31-289"><a href="#cb31-289" aria-hidden="true" tabindex="-1"></a>      }<span class="op">,</span></span>
 <span id="cb31-290"><a href="#cb31-290" aria-hidden="true" tabindex="-1"></a>    <span class="dt">header</span><span class="op">:</span> header<span class="op">,</span></span>
-<span id="cb31-291"><a href="#cb31-291" aria-hidden="true" tabindex="-1"></a>    <span class="dt">columns</span><span class="op">:</span> columns</span>
-<span id="cb31-292"><a href="#cb31-292" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb31-293"><a href="#cb31-293" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">;</span></span>
-<span id="cb31-294"><a href="#cb31-294" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> tt</span>
-<span id="cb31-295"><a href="#cb31-295" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-291"><a href="#cb31-291" aria-hidden="true" tabindex="-1"></a>    <span class="dt">columns</span><span class="op">:</span> columns<span class="op">,</span></span>
+<span id="cb31-292"><a href="#cb31-292" aria-hidden="true" tabindex="-1"></a>    <span class="dt">rows</span><span class="op">:</span> <span class="dv">18</span></span>
+<span id="cb31-293"><a href="#cb31-293" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb31-294"><a href="#cb31-294" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">;</span></span>
+<span id="cb31-295"><a href="#cb31-295" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> tt</span>
+<span id="cb31-296"><a href="#cb31-296" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-31" data-nodetype="declaration">
 
@@ -648,7 +657,7 @@ esthétique tableau
 <!-----
 capitalization
 --------->
-<div class="cell">
+<div class="cell hidden">
 <div class="sourceCode cell-code hidden" id="cb32" data-startfrom="297" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 296;"><span id="cb32-297"><a href="#cb32-297" aria-hidden="true" tabindex="-1"></a><span class="bu">Object</span><span class="op">.</span><span class="fu">defineProperty</span>(<span class="bu">String</span><span class="op">.</span><span class="at">prototype</span><span class="op">,</span> <span class="st">'capitalize'</span><span class="op">,</span> {</span>
 <span id="cb32-298"><a href="#cb32-298" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="kw">function</span>() {</span>
 <span id="cb32-299"><a href="#cb32-299" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="fu">charAt</span>(<span class="dv">0</span>)<span class="op">.</span><span class="fu">toUpperCase</span>() <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">slice</span>(<span class="dv">1</span>)<span class="op">;</span></span>
@@ -661,7 +670,6 @@ capitalization
 </div>
 </div>
 </div>
-
 <!-----------
 double tableau
 -------------->
@@ -803,7 +811,7 @@ update du fichier annotation
 </div>
 </div>
 </div>
-<div class="cell">
+<div class="cell hidden">
 <div class="sourceCode cell-code hidden" id="cb40" data-startfrom="0" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line -1;"><span id="cb40-0"><a href="#cb40-0" aria-hidden="true" tabindex="-1"></a>{</span>
 <span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x[current_row]) {</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    x[current_row]<span class="op">.</span><span class="at">justification</span> <span class="op">=</span> text_input <span class="op">;</span></span>
@@ -865,9 +873,8 @@ update du fichier annotation
 
 
 </main> <!-- /main -->
-
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"d3 = require(await FileAttachment('/js/d3.min.js').url())\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"inputs = require(await FileAttachment('/js/inputs.min.js').url())\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"marked = require(await FileAttachment('/js/marked.min.js').url())\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"htl = require(await FileAttachment('/js/htl.min.js').url())\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"html`<div name=\"file-import\">${viewof csvfile}</div>`\n"},{"methodName":"interpret","cellName":"ojs-cell-6","inline":false,"source":"html`<div name=\"colonnes-print\">${viewof columns_to_show}</div>`\n"},{"methodName":"interpret","cellName":"ojs-cell-7","inline":false,"source":"\n// Now create the grid_two_dataframes template literal\ngrid_two_dataframes = await html`\n  <div style=\"\n    background: #fff;\n    margin: 0;\n    border: none;\n    display: grid;\n    width: ${screen.width};\n    grid-template-areas: \n      'a b'\n      'c c'\n      'f d'\n      'g g'\n      'h h'\n      'i i'\n      'e e'\n      ;\n    grid-gap: 10px;\n  \">\n    <div name=\"a\" style=\"grid-area: a; position: relative;\">${viewof tt1}</div>\n    <div name=\"b\" style=\"grid-area: b; position: relative;\">${viewof tt2}</div>\n    <div name=\"c\" style=\"grid-area: c; position: relative;\">${viewof decision}</div>\n    <div name=\"f\" style=\"grid-area: f; position: relative;\">${viewof text_input}</div>\n    <div name=\"d\" style=\"grid-area: d; position: relative;\">${count_printed}</div>\n    <div name=\"g\" style=\"grid-area: g; position: relative;\">${message_share}</div>\n    <div name=\"h\" style=\"grid-area: h; position: relative;\">${progress}</div>\n    <div name=\"i\" style=\"grid-area: i; position: relative;\">${message_final}</div>\n    <div name=\"e\" style=\"grid-area: e; position: relative;\">${viewof download}</div>\n  </div>\n`;\n"},{"methodName":"interpret","cellName":"ojs-cell-8","inline":false,"source":"message_share = {\n  if (share < 10){\n    return md`Vous avez annoté ${share}% des paires du fichier d'entrée`\n  } else {\n    return md`Bravo vous avez annoté ${share}% des paires du fichier d'entrée`\n  }\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-9","inline":false,"source":"progress = {\n  const width = 360;\n  const height = 20;\n  const context = DOM.context2d(width, height);\n  context.canvas.style.border = \"solid 1px black\";\n  const i = width*(share/100);\n  context.clearRect(0, 0, width, height);\n  context.fillStyle = 'green'\n  context.fillRect(0, 0, i, height);\n  yield context.canvas;\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-10","inline":false,"source":"message_final = {\n  if (share === 100){\n    return md`__Vous avez annoté l'ensemble de votre fichier 💪🎉__`\n  } else {\n    return md``\n  }\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-11","inline":false,"source":"md`${max_count} Annotation${max_count>1 ? 's' : ''}`\n"},{"methodName":"interpret","cellName":"ojs-cell-12","inline":false,"source":"db = DuckDBClient.of({\n  match : await csvfile.csv()\n})\n"},{"methodName":"interpret","cellName":"ojs-cell-13","inline":false,"source":"table_names = db.sql`SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'match'`\ncolumn_names = table_names.flatMap(item => item.column_name)\n"},{"methodName":"interpret","cellName":"ojs-cell-14","inline":false,"source":"df = db.sql`SELECT * FROM match`\ndf_query = db.query(\n  `SELECT ${columns_to_show.map(l => l + \"_query\").join(', ')} FROM match`\n)\ndf_match = db.query(\n  `SELECT ${columns_to_show.map(l => l + \"_match\").join(', ')} FROM match`\n)\nn_rows_sql = db.sql`SELECT COUNT(*) AS COUNT FROM match`\n"},{"methodName":"interpret","cellName":"ojs-cell-15","inline":false,"source":"n_rows = n_rows_sql[0]['COUNT']\nmax_count = Math.min(Number(n_rows),count)\ncurrent_row = Math.min(Number(n_rows)-1,count)\n"},{"methodName":"interpret","cellName":"ojs-cell-16","inline":false,"source":"unique_columns_dup = column_names.map(columnName => columnName.replace(\"_query\", \"\").replace(\"_match\", \"\"));\nunique_columns = Array.from(new Set(unique_columns_dup))\n"},{"methodName":"interpret","cellName":"ojs-cell-17","inline":false,"source":"viewof csvfile = Inputs.file({label: md`__Fichier à annoter__ 📁 ([Exemple ici](https://raw.githubusercontent.com/linogaliana/serverless-annotation-tool/master/example.csv))`, accept: \".csv\", required: true})\n"},{"methodName":"interpret","cellName":"ojs-cell-18","inline":false,"source":"viewof columns_to_show = Inputs.checkbox(\n  unique_columns,\n  {label: \"Colonnes à afficher\", value: unique_columns, format: d => d.replace(\"_\", \" \").capitalize()})\n"},{"methodName":"interpret","cellName":"ojs-cell-19","inline":false,"source":"share = Math.round(100*max_count/Number(n_rows))\n"},{"methodName":"interpret","cellName":"ojs-cell-20","inline":false,"source":"viewof filename_input = Inputs.text(\n    {\n      label: html`<b>Nom du fichier pour l'export</b>📁`,\n      placeholder: \"annotations.json\",\n      value: \"annotations.json\"  \n      }\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-21","inline":false,"source":"function serialize (data) {\n let s = JSON.stringify(data);\n return new Blob([s], {type: \"application/json\"}) \n}\n"},{"methodName":"interpret","cellName":"ojs-cell-22","inline":false,"source":"viewof download = DOM.download(serialize(x), filename_input.replace(\".json\", \"\"), \"Sauvegarder les annotations 👇 dans un fichier\")\n"},{"methodName":"interpret","cellName":"ojs-cell-23","inline":false,"source":"viewof text_input = (count,\n  Inputs.text(\n    {label: html`<b>Raison de la décision</b>`,\n    //disabled: decision == null,\n    placeholder: \"Un texte explicatif\"})\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-24","inline":false,"source":"decision_label = [\n  {text: \"Accepter 👍️\", color: \"green\", decision: \"Accepted\"},\n  {text: \"Rejeter 👎️\", color: \"red\", decision: \"Rejected\"},\n  {text: \"Indécis 🤷\", color: \"blue\", decision: \"Undecided\"},\n  null\n]\n"},{"methodName":"interpret","cellName":"ojs-cell-25","inline":false,"source":"viewof decision = (count, Inputs.radio(\n  decision_label,\n  {label: \"Décision\",\n   format: x => (x == null) ? html`<span style=\"border-bottom: solid 2px blue; margin-bottom: -2px;\">Décision à prendre 🤔` : html`<span style=\"text-transform: capitalize; border-bottom: solid 2px ${x.color}; margin-bottom: -2px;\">${x.text}`,\n   value: null\n  }\n))\n"},{"methodName":"interpret","cellName":"ojs-cell-26","inline":false,"source":"viewof count = Inputs.button(\"Valider !\")\n"},{"methodName":"interpret","cellName":"ojs-cell-27","inline":false,"source":"viewof count_disabled = Inputs.button(\"Faire un choix pour pouvoir valider !\", {disabled : true})\n"},{"methodName":"interpret","cellName":"ojs-cell-28","inline":false,"source":"function reshape_row(row) {\n  return Object.entries(row).map(([column, value]) => ({ column, value }));\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-29","inline":false,"source":"function color_accepted(d) {\n  const backgroundColor = d === \"Accepted\" ? \"#5f9c5f\" : \"#fc4747\";\n  return html`<div style=\"background: ${backgroundColor};text-align:right;padding:2px 5px;\">${d}</div>`;\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-30","inline":false,"source":"function create_color_mapping(array_left, array_right) {\n  const mapping = {};\n  array_left.forEach((obj1, index) => {\n    const obj2 = array_right[index];\n    const key = obj1.value; // Use obj1.value as the key\n\n    if (obj1.value === obj2.value) {\n      mapping[key] = \"#5f9c5f\";\n    } else {\n      mapping[key] = \"#fc4747\";\n    }\n  });\n  return mapping\n}\n\nfunction create_color_map(key, array) {\n  const value = array[key];\n  const backgroundColor = value ;\n  return html`<div style=\"background: ${backgroundColor};text-align:right;padding:2px 5px;\">${key}</div>`;\n}\nfunction create_variable_row(d){\n  const d_nice = d.replace(\"_query\", \"\").capitalize().replace(\"_\", \" \") ;\n  return html`<b>${d_nice}</b>`;\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-31","inline":false,"source":"function table_pairs(array, color_scale, header, columns) {\n  const tt = Inputs.table(\n  array,\n    {\n    format: {\n      \"value\": d => create_color_map(d, color_scale),\n      \"column\": d => create_variable_row(d)\n      },\n    header: header,\n    columns: columns\n    }\n  ) ;\n  return tt\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-32","inline":false,"source":"Object.defineProperty(String.prototype, 'capitalize', {\n  value: function() {\n    return this.charAt(0).toUpperCase() + this.slice(1);\n  },\n  enumerable: false\n});\n"},{"methodName":"interpret","cellName":"ojs-cell-33","inline":false,"source":"array1 = reshape_row(df_query[current_row])\narray2 = reshape_row(df_match[current_row])\n"},{"methodName":"interpret","cellName":"ojs-cell-34","inline":false,"source":"colors_data1 = create_color_mapping(array1, array2)\ncolors_data2 = create_color_mapping(array2, array1)\n"},{"methodName":"interpret","cellName":"ojs-cell-35","inline":false,"source":"viewof tt1 = table_pairs(\n  array1, colors_data1, \n  {\"value\": \"Valeur observée\", \"column\": \"Variable d'intérêt\"},\n  [\"column\", \"value\"]\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-36","inline":false,"source":"viewof tt2 = table_pairs(\n  array2, colors_data2, \n   {\"value\": \"Paire potentielle\"},\n   [\"value\"]\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-37","inline":false,"source":"viewof final_table = Inputs.table(\n  x,\n  {format: {\n      \"similarity\": d => color_accepted(d)\n  }\n  })\n"},{"methodName":"interpret","cellName":"ojs-cell-38","inline":false,"source":"d = [];\nfunction push_mutable(d){\n  if (decision !== null) {\n    if (d.some(element => element.count === current_row)){\n      const index_replace = d.findIndex(element => element.count === current_row);\n      d[index_replace] = d_row ;\n    } else{\n      d.push(d_row);\n    }\n    }\n  return d ;\n}\nx = push_mutable(d)\n"},{"methodName":"interpret","cellName":"ojs-cell-39","inline":false,"source":"d_row = {\n  // Assuming `count` and `data_pairs` are already defined\n  const newElement = { ...df[current_row] }; // Create a shallow copy of the original element\n\n  if (decision !== null) {\n    newElement.similarity = decision.decision; // Update the \"field\" property with the value of `decision.decision`\n    newElement.justification = \"no decision yet\" ;\n    newElement.count = current_row ;\n  } else {\n    newElement.count = current_row ;\n    newElement.similarity = \"no decision yet\"; // Set the \"field\" property to \"nothing\" if `decision.decision` is null\n    //newElement.justification = text_input ;\n  }\n\n  return newElement;\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-40","inline":false,"source":"{\n  if (x[current_row]) {\n    x[current_row].justification = text_input ;\n  }\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-41","inline":false,"source":"count_printed = {\n  // Define a variable to hold the content of the 'd' div\n  let countDivContent;\n\n  // Check if 'decision' is null or not and set the 'countDivContent' accordingly\n  if (decision === null) {\n    countDivContent = viewof count_disabled;\n  } else {\n    countDivContent = viewof count;\n  }\n  return countDivContent\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-42","inline":false,"source":"count_hidden = {\n  // Define a variable to hold the content of the 'd' div\n  let countDivContent;\n\n  // Check if 'decision' is null or not and set the 'countDivContent' accordingly\n  if (decision === null) {\n    countDivContent = viewof count;\n  } else {\n    countDivContent = viewof count_disabled;\n  }\n  return countDivContent\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-43","inline":false,"source":"html`<div style=\"display: none;\">${count_hidden}</div>`\n"},{"methodName":"interpretQuiet","source":"shinyInput('csvfile')"},{"methodName":"interpretQuiet","source":"shinyInput('columns_to_show')"},{"methodName":"interpretQuiet","source":"shinyInput('filename_input')"},{"methodName":"interpretQuiet","source":"shinyInput('download')"},{"methodName":"interpretQuiet","source":"shinyInput('text_input')"},{"methodName":"interpretQuiet","source":"shinyInput('decision')"},{"methodName":"interpretQuiet","source":"shinyInput('count')"},{"methodName":"interpretQuiet","source":"shinyInput('count_disabled')"},{"methodName":"interpretQuiet","source":"shinyInput('tt1')"},{"methodName":"interpretQuiet","source":"shinyInput('tt2')"},{"methodName":"interpretQuiet","source":"shinyInput('final_table')"}]}
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImQzID0gcmVxdWlyZShhd2FpdCBGaWxlQXR0YWNobWVudCgnL2pzL2QzLm1pbi5qcycpLnVybCgpKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiaW5wdXRzID0gcmVxdWlyZShhd2FpdCBGaWxlQXR0YWNobWVudCgnL2pzL2lucHV0cy5taW4uanMnKS51cmwoKSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im1hcmtlZCA9IHJlcXVpcmUoYXdhaXQgRmlsZUF0dGFjaG1lbnQoJy9qcy9tYXJrZWQubWluLmpzJykudXJsKCkpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJodGwgPSByZXF1aXJlKGF3YWl0IEZpbGVBdHRhY2htZW50KCcvanMvaHRsLm1pbi5qcycpLnVybCgpKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC01IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiaHRtbGA8ZGl2IG5hbWU9XCJmaWxlLWltcG9ydFwiPiR7dmlld29mIGNzdmZpbGV9PC9kaXY+YFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC02IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiaHRtbGA8ZGl2IG5hbWU9XCJjb2xvbm5lcy1wcmludFwiPiR7dmlld29mIGNvbHVtbnNfdG9fc2hvd308L2Rpdj5gXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTciLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbi8vIE5vdyBjcmVhdGUgdGhlIGdyaWRfdHdvX2RhdGFmcmFtZXMgdGVtcGxhdGUgbGl0ZXJhbFxuZ3JpZF90d29fZGF0YWZyYW1lcyA9IGF3YWl0IGh0bWxgXG4gIDxkaXYgc3R5bGU9XCJcbiAgICBiYWNrZ3JvdW5kOiAjZmZmO1xuICAgIG1hcmdpbjogMDtcbiAgICBib3JkZXI6IG5vbmU7XG4gICAgZGlzcGxheTogZ3JpZDtcbiAgICB3aWR0aDogJHtzY3JlZW4ud2lkdGh9O1xuICAgIGdyaWQtdGVtcGxhdGUtYXJlYXM6IFxuICAgICAgJ2EgYidcbiAgICAgICdjIGMnXG4gICAgICAnZiBkJ1xuICAgICAgJ2cgZydcbiAgICAgICdoIGgnXG4gICAgICAnaSBpJ1xuICAgICAgJ2UgZSdcbiAgICAgIDtcbiAgICBncmlkLWdhcDogMTBweDtcbiAgXCI+XG4gICAgPGRpdiBuYW1lPVwiYVwiIHN0eWxlPVwiZ3JpZC1hcmVhOiBhOyBwb3NpdGlvbjogcmVsYXRpdmU7XCI+JHt2aWV3b2YgdHQxfTwvZGl2PlxuICAgIDxkaXYgbmFtZT1cImJcIiBzdHlsZT1cImdyaWQtYXJlYTogYjsgcG9zaXRpb246IHJlbGF0aXZlO1wiPiR7dmlld29mIHR0Mn08L2Rpdj5cbiAgICA8ZGl2IG5hbWU9XCJjXCIgc3R5bGU9XCJncmlkLWFyZWE6IGM7IHBvc2l0aW9uOiByZWxhdGl2ZTtcIj4ke3ZpZXdvZiBkZWNpc2lvbn08L2Rpdj5cbiAgICA8ZGl2IG5hbWU9XCJmXCIgc3R5bGU9XCJncmlkLWFyZWE6IGY7IHBvc2l0aW9uOiByZWxhdGl2ZTtcIj4ke3ZpZXdvZiB0ZXh0X2lucHV0fTwvZGl2PlxuICAgIDxkaXYgbmFtZT1cImRcIiBzdHlsZT1cImdyaWQtYXJlYTogZDsgcG9zaXRpb246IHJlbGF0aXZlO1wiPiR7Y291bnRfcHJpbnRlZH08L2Rpdj5cbiAgICA8ZGl2IG5hbWU9XCJnXCIgc3R5bGU9XCJncmlkLWFyZWE6IGc7IHBvc2l0aW9uOiByZWxhdGl2ZTtcIj4ke21lc3NhZ2Vfc2hhcmV9PC9kaXY+XG4gICAgPGRpdiBuYW1lPVwiaFwiIHN0eWxlPVwiZ3JpZC1hcmVhOiBoOyBwb3NpdGlvbjogcmVsYXRpdmU7XCI+JHtwcm9ncmVzc308L2Rpdj5cbiAgICA8ZGl2IG5hbWU9XCJpXCIgc3R5bGU9XCJncmlkLWFyZWE6IGk7IHBvc2l0aW9uOiByZWxhdGl2ZTtcIj4ke21lc3NhZ2VfZmluYWx9PC9kaXY+XG4gICAgPGRpdiBuYW1lPVwiZVwiIHN0eWxlPVwiZ3JpZC1hcmVhOiBlOyBwb3NpdGlvbjogcmVsYXRpdmU7XCI+JHt2aWV3b2YgZG93bmxvYWR9PC9kaXY+XG4gIDwvZGl2PlxuYDtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtOCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im1lc3NhZ2Vfc2hhcmUgPSB7XG4gIGlmIChzaGFyZSA8IDEwKXtcbiAgICByZXR1cm4gbWRgVm91cyBhdmV6IGFubm90w6kgJHtzaGFyZX0lIGRlcyBwYWlyZXMgZHUgZmljaGllciBkJ2VudHLDqWVgXG4gIH0gZWxzZSB7XG4gICAgcmV0dXJuIG1kYEJyYXZvIHZvdXMgYXZleiBhbm5vdMOpICR7c2hhcmV9JSBkZXMgcGFpcmVzIGR1IGZpY2hpZXIgZCdlbnRyw6llYFxuICB9XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTkiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJwcm9ncmVzcyA9IHtcbiAgY29uc3Qgd2lkdGggPSAzNjA7XG4gIGNvbnN0IGhlaWdodCA9IDIwO1xuICBjb25zdCBjb250ZXh0ID0gRE9NLmNvbnRleHQyZCh3aWR0aCwgaGVpZ2h0KTtcbiAgY29udGV4dC5jYW52YXMuc3R5bGUuYm9yZGVyID0gXCJzb2xpZCAxcHggYmxhY2tcIjtcbiAgY29uc3QgaSA9IHdpZHRoKihzaGFyZS8xMDApO1xuICBjb250ZXh0LmNsZWFyUmVjdCgwLCAwLCB3aWR0aCwgaGVpZ2h0KTtcbiAgY29udGV4dC5maWxsU3R5bGUgPSAnZ3JlZW4nXG4gIGNvbnRleHQuZmlsbFJlY3QoMCwgMCwgaSwgaGVpZ2h0KTtcbiAgeWllbGQgY29udGV4dC5jYW52YXM7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTEwIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWVzc2FnZV9maW5hbCA9IHtcbiAgaWYgKHNoYXJlID09PSAxMDApe1xuICAgIHJldHVybiBtZGBfX1ZvdXMgYXZleiBhbm5vdMOpIGwnZW5zZW1ibGUgZGUgdm90cmUgZmljaGllciDwn5Kq8J+OiV9fYFxuICB9IGVsc2Uge1xuICAgIHJldHVybiBtZGBgXG4gIH1cbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTEiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJtZGAke21heF9jb3VudH0gQW5ub3RhdGlvbiR7bWF4X2NvdW50PjEgPyAncycgOiAnJ31gXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTEyIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZGIgPSBEdWNrREJDbGllbnQub2Yoe1xuICBtYXRjaCA6IGF3YWl0IGNzdmZpbGUuY3N2KClcbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTEzIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidGFibGVfbmFtZXMgPSBkYi5zcWxgU0VMRUNUIGNvbHVtbl9uYW1lIEZST00gSU5GT1JNQVRJT05fU0NIRU1BLkNPTFVNTlMgV0hFUkUgVEFCTEVfTkFNRSA9ICdtYXRjaCdgXG5jb2x1bW5fbmFtZXMgPSB0YWJsZV9uYW1lcy5mbGF0TWFwKGl0ZW0gPT4gaXRlbS5jb2x1bW5fbmFtZSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJkZiA9IGRiLnNxbGBTRUxFQ1QgKiBGUk9NIG1hdGNoYFxuZGZfcXVlcnkgPSBkYi5xdWVyeShcbiAgYFNFTEVDVCAke2NvbHVtbnNfdG9fc2hvdy5tYXAobCA9PiBsICsgXCJfcXVlcnlcIikuam9pbignLCAnKX0gRlJPTSBtYXRjaGBcbilcbmRmX21hdGNoID0gZGIucXVlcnkoXG4gIGBTRUxFQ1QgJHtjb2x1bW5zX3RvX3Nob3cubWFwKGwgPT4gbCArIFwiX21hdGNoXCIpLmpvaW4oJywgJyl9IEZST00gbWF0Y2hgXG4pXG5uX3Jvd3Nfc3FsID0gZGIuc3FsYFNFTEVDVCBDT1VOVCgqKSBBUyBDT1VOVCBGUk9NIG1hdGNoYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im5fcm93cyA9IG5fcm93c19zcWxbMF1bJ0NPVU5UJ11cbm1heF9jb3VudCA9IE1hdGgubWluKE51bWJlcihuX3Jvd3MpLGNvdW50KVxuY3VycmVudF9yb3cgPSBNYXRoLm1pbihOdW1iZXIobl9yb3dzKS0xLGNvdW50KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xNiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InVuaXF1ZV9jb2x1bW5zX2R1cCA9IGNvbHVtbl9uYW1lcy5tYXAoY29sdW1uTmFtZSA9PiBjb2x1bW5OYW1lLnJlcGxhY2UoXCJfcXVlcnlcIiwgXCJcIikucmVwbGFjZShcIl9tYXRjaFwiLCBcIlwiKSk7XG51bmlxdWVfY29sdW1ucyA9IEFycmF5LmZyb20obmV3IFNldCh1bmlxdWVfY29sdW1uc19kdXApKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBjc3ZmaWxlID0gSW5wdXRzLmZpbGUoe2xhYmVsOiBtZGBfX0ZpY2hpZXIgw6AgYW5ub3Rlcl9fIPCfk4EgKFtFeGVtcGxlIGljaV0oaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2xpbm9nYWxpYW5hL3NlcnZlcmxlc3MtYW5ub3RhdGlvbi10b29sL21hc3Rlci9leGFtcGxlLmNzdikpYCwgYWNjZXB0OiBcIi5jc3ZcIiwgcmVxdWlyZWQ6IHRydWV9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xOCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBjb2x1bW5zX3RvX3Nob3cgPSBJbnB1dHMuY2hlY2tib3goXG4gIHVuaXF1ZV9jb2x1bW5zLFxuICB7bGFiZWw6IFwiQ29sb25uZXMgw6AgYWZmaWNoZXJcIiwgdmFsdWU6IHVuaXF1ZV9jb2x1bW5zLCBmb3JtYXQ6IGQgPT4gZC5yZXBsYWNlKFwiX1wiLCBcIiBcIikuY2FwaXRhbGl6ZSgpfSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTkiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJzaGFyZSA9IE1hdGgucm91bmQoMTAwKm1heF9jb3VudC9OdW1iZXIobl9yb3dzKSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMjAiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgZmlsZW5hbWVfaW5wdXQgPSBJbnB1dHMudGV4dChcbiAgICB7XG4gICAgICBsYWJlbDogaHRtbGA8Yj5Ob20gZHUgZmljaGllciBwb3VyIGwnZXhwb3J0PC9iPvCfk4FgLFxuICAgICAgcGxhY2Vob2xkZXI6IFwiYW5ub3RhdGlvbnMuanNvblwiLFxuICAgICAgdmFsdWU6IFwiYW5ub3RhdGlvbnMuanNvblwiICBcbiAgICAgIH1cbilcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMjEiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJmdW5jdGlvbiBzZXJpYWxpemUgKGRhdGEpIHtcbiBsZXQgcyA9IEpTT04uc3RyaW5naWZ5KGRhdGEpO1xuIHJldHVybiBuZXcgQmxvYihbc10sIHt0eXBlOiBcImFwcGxpY2F0aW9uL2pzb25cIn0pIFxufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBkb3dubG9hZCA9IERPTS5kb3dubG9hZChzZXJpYWxpemUoeCksIGZpbGVuYW1lX2lucHV0LnJlcGxhY2UoXCIuanNvblwiLCBcIlwiKSwgXCJTYXV2ZWdhcmRlciBsZXMgYW5ub3RhdGlvbnMg8J+RhyBkYW5zIHVuIGZpY2hpZXJcIilcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMjMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgdGV4dF9pbnB1dCA9IChjb3VudCxcbiAgSW5wdXRzLnRleHQoXG4gICAge2xhYmVsOiBodG1sYDxiPlJhaXNvbiBkZSBsYSBkw6ljaXNpb248L2I+YCxcbiAgICAvL2Rpc2FibGVkOiBkZWNpc2lvbiA9PSBudWxsLFxuICAgIHBsYWNlaG9sZGVyOiBcIlVuIHRleHRlIGV4cGxpY2F0aWZcIn0pXG4pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTI0IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZGVjaXNpb25fbGFiZWwgPSBbXG4gIHt0ZXh0OiBcIkFjY2VwdGVyIPCfkY3vuI9cIiwgY29sb3I6IFwiZ3JlZW5cIiwgZGVjaXNpb246IFwiQWNjZXB0ZWRcIn0sXG4gIHt0ZXh0OiBcIlJlamV0ZXIg8J+Rju+4j1wiLCBjb2xvcjogXCJyZWRcIiwgZGVjaXNpb246IFwiUmVqZWN0ZWRcIn0sXG4gIHt0ZXh0OiBcIkluZMOpY2lzIPCfpLdcIiwgY29sb3I6IFwiYmx1ZVwiLCBkZWNpc2lvbjogXCJVbmRlY2lkZWRcIn0sXG4gIG51bGxcbl1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMjUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgZGVjaXNpb24gPSAoY291bnQsIElucHV0cy5yYWRpbyhcbiAgZGVjaXNpb25fbGFiZWwsXG4gIHtsYWJlbDogXCJEw6ljaXNpb25cIixcbiAgIGZvcm1hdDogeCA9PiAoeCA9PSBudWxsKSA/IGh0bWxgPHNwYW4gc3R5bGU9XCJib3JkZXItYm90dG9tOiBzb2xpZCAycHggYmx1ZTsgbWFyZ2luLWJvdHRvbTogLTJweDtcIj5Ew6ljaXNpb24gw6AgcHJlbmRyZSDwn6SUYCA6IGh0bWxgPHNwYW4gc3R5bGU9XCJ0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTsgYm9yZGVyLWJvdHRvbTogc29saWQgMnB4ICR7eC5jb2xvcn07IG1hcmdpbi1ib3R0b206IC0ycHg7XCI+JHt4LnRleHR9YCxcbiAgIHZhbHVlOiBudWxsXG4gIH1cbikpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTI2IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIGNvdW50ID0gSW5wdXRzLmJ1dHRvbihcIlZhbGlkZXIgIVwiKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBjb3VudF9kaXNhYmxlZCA9IElucHV0cy5idXR0b24oXCJGYWlyZSB1biBjaG9peCBwb3VyIHBvdXZvaXIgdmFsaWRlciAhXCIsIHtkaXNhYmxlZCA6IHRydWV9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yOCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZ1bmN0aW9uIHJlc2hhcGVfcm93KHJvdykge1xuICByZXR1cm4gT2JqZWN0LmVudHJpZXMocm93KS5tYXAoKFtjb2x1bW4sIHZhbHVlXSkgPT4gKHsgY29sdW1uLCB2YWx1ZSB9KSk7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTI5IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZnVuY3Rpb24gY29sb3JfYWNjZXB0ZWQoZCkge1xuICBjb25zdCBiYWNrZ3JvdW5kQ29sb3IgPSBkID09PSBcIkFjY2VwdGVkXCIgPyBcIiM1ZjljNWZcIiA6IFwiI2ZjNDc0N1wiO1xuICByZXR1cm4gaHRtbGA8ZGl2IHN0eWxlPVwiYmFja2dyb3VuZDogJHtiYWNrZ3JvdW5kQ29sb3J9O3RleHQtYWxpZ246cmlnaHQ7cGFkZGluZzoycHggNXB4O1wiPiR7ZH08L2Rpdj5gO1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zMCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZ1bmN0aW9uIGNyZWF0ZV9jb2xvcl9tYXBwaW5nKGFycmF5X2xlZnQsIGFycmF5X3JpZ2h0KSB7XG4gIGNvbnN0IG1hcHBpbmcgPSB7fTtcbiAgYXJyYXlfbGVmdC5mb3JFYWNoKChvYmoxLCBpbmRleCkgPT4ge1xuICAgIGNvbnN0IG9iajIgPSBhcnJheV9yaWdodFtpbmRleF07XG4gICAgY29uc3Qga2V5ID0gb2JqMS52YWx1ZTsgLy8gVXNlIG9iajEudmFsdWUgYXMgdGhlIGtleVxuXG4gICAgaWYgKG9iajEudmFsdWUgPT09IG9iajIudmFsdWUpIHtcbiAgICAgIG1hcHBpbmdba2V5XSA9IFwiIzVmOWM1ZlwiO1xuICAgIH0gZWxzZSB7XG4gICAgICBtYXBwaW5nW2tleV0gPSBcIiNmYzQ3NDdcIjtcbiAgICB9XG4gIH0pO1xuICByZXR1cm4gbWFwcGluZ1xufVxuXG5mdW5jdGlvbiBjcmVhdGVfY29sb3JfbWFwKGtleSwgYXJyYXkpIHtcbiAgY29uc3QgdmFsdWUgPSBhcnJheVtrZXldO1xuICBjb25zdCBiYWNrZ3JvdW5kQ29sb3IgPSB2YWx1ZSA7XG4gIHJldHVybiBodG1sYDxkaXYgc3R5bGU9XCJiYWNrZ3JvdW5kOiAke2JhY2tncm91bmRDb2xvcn07dGV4dC1hbGlnbjpyaWdodDtwYWRkaW5nOjJweCA1cHg7XCI+JHtrZXl9PC9kaXY+YDtcbn1cbmZ1bmN0aW9uIGNyZWF0ZV92YXJpYWJsZV9yb3coZCl7XG4gIGNvbnN0IGRfbmljZSA9IGQucmVwbGFjZShcIl9xdWVyeVwiLCBcIlwiKS5jYXBpdGFsaXplKCkucmVwbGFjZShcIl9cIiwgXCIgXCIpIDtcbiAgcmV0dXJuIGh0bWxgPGI+JHtkX25pY2V9PC9iPmA7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMxIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZnVuY3Rpb24gdGFibGVfcGFpcnMoYXJyYXksIGNvbG9yX3NjYWxlLCBoZWFkZXIsIGNvbHVtbnMpIHtcbiAgY29uc3QgdHQgPSBJbnB1dHMudGFibGUoXG4gIGFycmF5LFxuICAgIHtcbiAgICBmb3JtYXQ6IHtcbiAgICAgIFwidmFsdWVcIjogZCA9PiBjcmVhdGVfY29sb3JfbWFwKGQsIGNvbG9yX3NjYWxlKSxcbiAgICAgIFwiY29sdW1uXCI6IGQgPT4gY3JlYXRlX3ZhcmlhYmxlX3JvdyhkKVxuICAgICAgfSxcbiAgICBoZWFkZXI6IGhlYWRlcixcbiAgICBjb2x1bW5zOiBjb2x1bW5zLFxuICAgIHJvd3M6IDE4XG4gICAgfVxuICApIDtcbiAgcmV0dXJuIHR0XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMyIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiT2JqZWN0LmRlZmluZVByb3BlcnR5KFN0cmluZy5wcm90b3R5cGUsICdjYXBpdGFsaXplJywge1xuICB2YWx1ZTogZnVuY3Rpb24oKSB7XG4gICAgcmV0dXJuIHRoaXMuY2hhckF0KDApLnRvVXBwZXJDYXNlKCkgKyB0aGlzLnNsaWNlKDEpO1xuICB9LFxuICBlbnVtZXJhYmxlOiBmYWxzZVxufSk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMzIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiYXJyYXkxID0gcmVzaGFwZV9yb3coZGZfcXVlcnlbY3VycmVudF9yb3ddKVxuYXJyYXkyID0gcmVzaGFwZV9yb3coZGZfbWF0Y2hbY3VycmVudF9yb3ddKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImNvbG9yc19kYXRhMSA9IGNyZWF0ZV9jb2xvcl9tYXBwaW5nKGFycmF5MSwgYXJyYXkyKVxuY29sb3JzX2RhdGEyID0gY3JlYXRlX2NvbG9yX21hcHBpbmcoYXJyYXkyLCBhcnJheTEpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTM1IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIHR0MSA9IHRhYmxlX3BhaXJzKFxuICBhcnJheTEsIGNvbG9yc19kYXRhMSwgXG4gIHtcInZhbHVlXCI6IFwiVmFsZXVyIG9ic2VydsOpZVwiLCBcImNvbHVtblwiOiBcIlZhcmlhYmxlIGQnaW50w6lyw6p0XCJ9LFxuICBbXCJjb2x1bW5cIiwgXCJ2YWx1ZVwiXVxuKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zNiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiB0dDIgPSB0YWJsZV9wYWlycyhcbiAgYXJyYXkyLCBjb2xvcnNfZGF0YTIsIFxuICAge1widmFsdWVcIjogXCJQYWlyZSBwb3RlbnRpZWxsZVwifSxcbiAgIFtcInZhbHVlXCJdXG4pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTM3IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIGZpbmFsX3RhYmxlID0gSW5wdXRzLnRhYmxlKFxuICB4LFxuICB7Zm9ybWF0OiB7XG4gICAgICBcInNpbWlsYXJpdHlcIjogZCA9PiBjb2xvcl9hY2NlcHRlZChkKVxuICB9XG4gIH0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTM4IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZCA9IFtdO1xuZnVuY3Rpb24gcHVzaF9tdXRhYmxlKGQpe1xuICBpZiAoZGVjaXNpb24gIT09IG51bGwpIHtcbiAgICBpZiAoZC5zb21lKGVsZW1lbnQgPT4gZWxlbWVudC5jb3VudCA9PT0gY3VycmVudF9yb3cpKXtcbiAgICAgIGNvbnN0IGluZGV4X3JlcGxhY2UgPSBkLmZpbmRJbmRleChlbGVtZW50ID0+IGVsZW1lbnQuY291bnQgPT09IGN1cnJlbnRfcm93KTtcbiAgICAgIGRbaW5kZXhfcmVwbGFjZV0gPSBkX3JvdyA7XG4gICAgfSBlbHNle1xuICAgICAgZC5wdXNoKGRfcm93KTtcbiAgICB9XG4gICAgfVxuICByZXR1cm4gZCA7XG59XG54ID0gcHVzaF9tdXRhYmxlKGQpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTM5IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZF9yb3cgPSB7XG4gIC8vIEFzc3VtaW5nIGBjb3VudGAgYW5kIGBkYXRhX3BhaXJzYCBhcmUgYWxyZWFkeSBkZWZpbmVkXG4gIGNvbnN0IG5ld0VsZW1lbnQgPSB7IC4uLmRmW2N1cnJlbnRfcm93XSB9OyAvLyBDcmVhdGUgYSBzaGFsbG93IGNvcHkgb2YgdGhlIG9yaWdpbmFsIGVsZW1lbnRcblxuICBpZiAoZGVjaXNpb24gIT09IG51bGwpIHtcbiAgICBuZXdFbGVtZW50LnNpbWlsYXJpdHkgPSBkZWNpc2lvbi5kZWNpc2lvbjsgLy8gVXBkYXRlIHRoZSBcImZpZWxkXCIgcHJvcGVydHkgd2l0aCB0aGUgdmFsdWUgb2YgYGRlY2lzaW9uLmRlY2lzaW9uYFxuICAgIG5ld0VsZW1lbnQuanVzdGlmaWNhdGlvbiA9IFwibm8gZGVjaXNpb24geWV0XCIgO1xuICAgIG5ld0VsZW1lbnQuY291bnQgPSBjdXJyZW50X3JvdyA7XG4gIH0gZWxzZSB7XG4gICAgbmV3RWxlbWVudC5jb3VudCA9IGN1cnJlbnRfcm93IDtcbiAgICBuZXdFbGVtZW50LnNpbWlsYXJpdHkgPSBcIm5vIGRlY2lzaW9uIHlldFwiOyAvLyBTZXQgdGhlIFwiZmllbGRcIiBwcm9wZXJ0eSB0byBcIm5vdGhpbmdcIiBpZiBgZGVjaXNpb24uZGVjaXNpb25gIGlzIG51bGxcbiAgICAvL25ld0VsZW1lbnQuanVzdGlmaWNhdGlvbiA9IHRleHRfaW5wdXQgO1xuICB9XG5cbiAgcmV0dXJuIG5ld0VsZW1lbnQ7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQwIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoie1xuICBpZiAoeFtjdXJyZW50X3Jvd10pIHtcbiAgICB4W2N1cnJlbnRfcm93XS5qdXN0aWZpY2F0aW9uID0gdGV4dF9pbnB1dCA7XG4gIH1cbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNDEiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJjb3VudF9wcmludGVkID0ge1xuICAvLyBEZWZpbmUgYSB2YXJpYWJsZSB0byBob2xkIHRoZSBjb250ZW50IG9mIHRoZSAnZCcgZGl2XG4gIGxldCBjb3VudERpdkNvbnRlbnQ7XG5cbiAgLy8gQ2hlY2sgaWYgJ2RlY2lzaW9uJyBpcyBudWxsIG9yIG5vdCBhbmQgc2V0IHRoZSAnY291bnREaXZDb250ZW50JyBhY2NvcmRpbmdseVxuICBpZiAoZGVjaXNpb24gPT09IG51bGwpIHtcbiAgICBjb3VudERpdkNvbnRlbnQgPSB2aWV3b2YgY291bnRfZGlzYWJsZWQ7XG4gIH0gZWxzZSB7XG4gICAgY291bnREaXZDb250ZW50ID0gdmlld29mIGNvdW50O1xuICB9XG4gIHJldHVybiBjb3VudERpdkNvbnRlbnRcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNDIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJjb3VudF9oaWRkZW4gPSB7XG4gIC8vIERlZmluZSBhIHZhcmlhYmxlIHRvIGhvbGQgdGhlIGNvbnRlbnQgb2YgdGhlICdkJyBkaXZcbiAgbGV0IGNvdW50RGl2Q29udGVudDtcblxuICAvLyBDaGVjayBpZiAnZGVjaXNpb24nIGlzIG51bGwgb3Igbm90IGFuZCBzZXQgdGhlICdjb3VudERpdkNvbnRlbnQnIGFjY29yZGluZ2x5XG4gIGlmIChkZWNpc2lvbiA9PT0gbnVsbCkge1xuICAgIGNvdW50RGl2Q29udGVudCA9IHZpZXdvZiBjb3VudDtcbiAgfSBlbHNlIHtcbiAgICBjb3VudERpdkNvbnRlbnQgPSB2aWV3b2YgY291bnRfZGlzYWJsZWQ7XG4gIH1cbiAgcmV0dXJuIGNvdW50RGl2Q29udGVudFxufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00MyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Imh0bWxgPGRpdiBzdHlsZT1cImRpc3BsYXk6IG5vbmU7XCI+JHtjb3VudF9oaWRkZW59PC9kaXY+YFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdjc3ZmaWxlJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2NvbHVtbnNfdG9fc2hvdycpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdmaWxlbmFtZV9pbnB1dCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdkb3dubG9hZCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCd0ZXh0X2lucHV0JykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2RlY2lzaW9uJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2NvdW50JykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2NvdW50X2Rpc2FibGVkJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ3R0MScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCd0dDInKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZmluYWxfdGFibGUnKSJ9XX0=
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
@@ -956,10 +963,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/InseeFrLab\.github\.io\/serverless-annotation-tool\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -969,8 +993,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -982,7 +1015,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1026,6 +1182,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1051,6 +1208,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1111,6 +1294,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
