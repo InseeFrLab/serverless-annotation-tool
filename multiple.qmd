@@ -157,8 +157,6 @@ colors_data2 = create_color_mapping(array2, array1)
 colors_data3 = create_color_mapping(array3, array1)
 ```
 
-
-
 ```{ojs}
 viewof tt1 = table_pairs(
   array1, colors_data1, 
