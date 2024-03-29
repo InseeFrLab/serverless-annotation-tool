@@ -2,6 +2,13 @@
 title: "Choix entre plusieurs algorithmes"
 echo: false
 image: cats.jpg
+format:
+  html:
+      grid:
+        sidebar-width: 0px
+        body-width: 2000px
+        margin-width: 0px
+        gutter-width: 0.5rem
 ---
 
 ```{ojs}
@@ -12,15 +19,15 @@ html`<div name="file-import">${viewof csvfile}</div>`
 html`<div name="colonnes-print">${viewof columns_to_show}</div>`
 ```
 
-
 ```{ojs}
 //| echo: false
-grid_two_dataframes = await html`<div style="
+grid_two_dataframes = await html`
+<div style="
               background: #fff;
               margin: 0;
               border: none ;
               display: grid;
-              width: ${screen.width};
+              max-width: 1000px; /* Set a max-width to control the spread */
               grid-template-areas: 
                 'a b c'
                 'g g g'
@@ -28,15 +35,16 @@ grid_two_dataframes = await html`<div style="
                 'f f f'
                 'e e e'
                 ;
-              grid-gap: 10px;
+              grid-gap: 5px; /* Reduced gap */
             ">
-              <div name="a" style="grid-area: a; position: relative;">${viewof tt1}</div>
-              <div name="b" style="grid-area: b; position: relative;">${viewof tt2}</div>
-              <div name="c" style="grid-area: c; position: relative;">${viewof tt3}</div>
+              <div name="a" style="grid-area: a; position: relative;" id = "table1">${viewof tt1}</div>
+              <div name="b" style="grid-area: b; position: relative;" id = "table2">${viewof tt2}</div>
+              <div name="c" style="grid-area: c; position: relative;" id = "table3">${viewof tt3}</div>
               <div name="g" style="grid-area: g; position: relative;">${viewof decision}</div>
               <div name="d" style="grid-area: d; position: relative;">${count_printed}</div>
               <div name="f" style="grid-area: f; position: relative;">${viewof text_input}</div>
-            </div>`
+</div>
+`
 ```
 
 ```{ojs}
@@ -148,6 +156,7 @@ colors_data1 = create_color_mapping(array1, array1)
 colors_data2 = create_color_mapping(array2, array1)
 colors_data3 = create_color_mapping(array3, array1)
 ```
+
 
 
 ```{ojs}
