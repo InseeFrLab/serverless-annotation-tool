@@ -55,9 +55,9 @@ grid_two_dataframes = await html`
                 ;
               grid-gap: 5px; /* Reduced gap */
             ">
-              <div name="a" style="grid-area: a; position: relative;" id = "table1">${viewof tt1}</div>
-              <div name="b" style="grid-area: b; position: relative;" id = "table2">${viewof tt2}</div>
-              <div name="c" style="grid-area: c; position: relative;" id = "table3">${viewof tt3}</div>
+              <div name="a" style="grid-area: a; position: relative;" id="table1">${viewof tt1}</div>
+              <div name="b" style="grid-area: b; position: relative;" id="table2">${viewof tt2}</div>
+              <div name="c" style="grid-area: c; position: relative;" id="table3">${viewof tt3}</div>
               <div name="g" style="grid-area: g; position: relative;">${viewof decision}</div>
               <div name="f" style="grid-area: f; position: relative;">${viewof text_input}</div>
               <div name="d" style="grid-area: d; position: relative;" id = "button-validate">${count_printed}</div>
