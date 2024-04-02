@@ -20,6 +20,24 @@ html`<div name="colonnes-print">${viewof columns_to_show}</div>`
 ```
 
 ```{ojs}
+function calculateTablesWidth() {
+  // Retrieve the width of each table
+  const table1Width = document.getElementById('table1').offsetWidth;
+  const table2Width = document.getElementById('table2').offsetWidth;
+  const table3Width = document.getElementById('table3').offsetWidth;
+
+  // Sum the widths of all tables
+  const tablesWidth = table1Width + table2Width + table3Width;
+  
+  // Log the width to the console or perform other actions with it
+  console.log('Combined tables width:', tablesWidth);
+  
+  // Return the value in case it needs to be used where the function was called
+  return tablesWidth;
+}
+```
+
+```{ojs}
 //| echo: false
 grid_two_dataframes = await html`
 <div style="
@@ -31,8 +49,8 @@ grid_two_dataframes = await html`
               grid-template-areas: 
                 'a b c'
                 'g g g'
-                'd d d'
                 'f f f'
+                'd d d'
                 'e e e'
                 ;
               grid-gap: 5px; /* Reduced gap */
@@ -41,8 +59,8 @@ grid_two_dataframes = await html`
               <div name="b" style="grid-area: b; position: relative;" id = "table2">${viewof tt2}</div>
               <div name="c" style="grid-area: c; position: relative;" id = "table3">${viewof tt3}</div>
               <div name="g" style="grid-area: g; position: relative;">${viewof decision}</div>
-              <div name="d" style="grid-area: d; position: relative;">${count_printed}</div>
               <div name="f" style="grid-area: f; position: relative;">${viewof text_input}</div>
+              <div name="d" style="grid-area: d; position: relative;" id = "button-validate">${count_printed}</div>
 </div>
 `
 ```
@@ -94,8 +112,6 @@ message_final = {
 ```{ojs}
 md`${max_count} Annotation${max_count>1 ? 's' : ''}`
 ```
-
-
 
 
 
