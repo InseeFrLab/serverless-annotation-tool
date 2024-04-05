@@ -19,6 +19,7 @@ html`<div name="file-import">${viewof csvfile}</div>`
 html`<div name="colonnes-print">${viewof columns_to_show}</div>`
 ```
 
+
 ```{ojs}
 function calculateTablesWidth() {
   // Retrieve the width of each table
@@ -177,7 +178,8 @@ colors_data3 = create_color_mapping(array3, array1)
 viewof tt1 = table_pairs(
   array1, colors_data1, 
   {"value": "Valeur observée", "column": "Variable d'intérêt"},
-  ["column", "value"]
+  ["column", "value"],
+  "fixed"
 )
 ```
 

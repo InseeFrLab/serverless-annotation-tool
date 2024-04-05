@@ -44,7 +44,7 @@ function create_variable_row(d){
 
 
 ```{ojs}
-function table_pairs(array, color_scale, header, columns) {
+function table_pairs(array, color_scale, header, columns, layout = "fixed") {
   console.log(array.length)
   const tt = Inputs.table(
   array,
@@ -55,7 +55,8 @@ function table_pairs(array, color_scale, header, columns) {
       },
     header: header,
     columns: columns,
-    rows: 18
+    rows: 18,
+    layout: layout
     }
   ) ;
   return tt
