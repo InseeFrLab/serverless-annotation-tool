@@ -2,13 +2,6 @@
 title: "Choix entre plusieurs algorithmes"
 echo: false
 image: cats.jpg
-format:
-  html:
-      grid:
-        sidebar-width: 0px
-        body-width: 2000px
-        margin-width: 0px
-        gutter-width: 0.5rem
 ---
 
 ```{ojs}

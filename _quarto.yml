@@ -22,6 +22,11 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+    grid:
+      sidebar-width: 0px
+      body-width: 2000px
+      margin-width: 0px
+      gutter-width: 0.5rem
 
 
 
